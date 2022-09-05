@@ -1,6 +1,7 @@
 class EventHandlers {
-  constructor(eventBinders) {
+  constructor(eventBinders, harpSoundControl) {
     this.eventBinders = eventBinders;
+    this.harpSoundControl = harpSoundControl;
   }
 }
 
