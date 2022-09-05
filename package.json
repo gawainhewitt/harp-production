@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/gawainhewitt/harp-production/issues"
   },
-  "homepage": "https://github.com/gawainhewitt/harp-production#readme"
+  "homepage": "https://github.com/gawainhewitt/harp-production#readme",
+  "dependencies": {
+    "esbuild": "^0.14.43",
+    "tone": "^14.7.77"
+  }
 }
