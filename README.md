@@ -1,2 +1,6 @@
 # harp-production
-An accessible playable harp 
+
+A playable harp instrument that is accessible to disabled musicians.
+
+
+
