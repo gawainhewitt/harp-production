@@ -1,0 +1,21 @@
+{
+  "name": "harp-production",
+  "version": "1.0.0",
+  "description": "A playable harp instrument that is accessible to disabled musicians.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./dist/* && cp ./index.html ./dist/index.html && cp ./main.css ./dist/main.css && cp -avr ./sounds/ ./dist/ && esbuild index.js --bundle  --outfile=./dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gawainhewitt/harp-production.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gawainhewitt/harp-production/issues"
+  },
+  "homepage": "https://github.com/gawainhewitt/harp-production#readme"
+}
