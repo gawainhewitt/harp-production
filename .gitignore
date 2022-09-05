@@ -2,3 +2,4 @@ node_modules
 bundle.js
 # Local Netlify folder
 .netlify
+dist
