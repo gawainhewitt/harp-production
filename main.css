@@ -1,0 +1,104 @@
+* {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* I have left :root in as a reminder that it is above html in inheritance */
+
+:root {
+  /* setting the height here gives the basis upon which percentages are referenced */
+  /* height: 50vh;  */
+}
+
+html {
+  /* sets height % relative to :root (if :root is set) */
+  /* height: 100%; */
+}
+
+body {
+  /* sets height % relative to html */
+  /* height: 100%; */
+}
+
+.top-box {
+  /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
+  height: 10vh;
+  background: cyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#inner-top-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+#middle-box {
+  /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
+  height: 90vh;
+  display: flex;
+  background: white;
+}
+
+/* .bottom-box{
+    height: 10vh;
+    background: yellow;
+  } */
+
+.one {
+  background: brown;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.two {
+  background: grey;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.three {
+  background: black;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.string {
+  background: goldenrod;
+  width: 2vw;
+}
+
+p {
+  text-align: center;
+  font-size: 2em;
+}
+
+#startscreen {
+  margin: 0 auto;
+  background: rgb(148, 207, 148);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  z-index: 10;
+  position: absolute;
+}
+
+#innerstartscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#startbutton {
+  font-size: 4em;
+}
