@@ -7,12 +7,16 @@ describe("setup audio", () => {
     },
     Sampler: class {
       constructor(params) {}
-      connect = () => {};
+      connect = () => {
+        return "daschunds rule!";
+      };
       set = () => {};
     },
     Reverb: class {
       constructor(params) {}
-      toDestination = () => {};
+      toDestination = () => {
+        return "blah";
+      };
     }
   };
 
@@ -30,4 +34,5 @@ describe("setup audio", () => {
 
     expect(harpSoundControl.sampler).toBeInstanceOf(FakeTone.Sampler);
   });
+  it("creates reverb", () => expect(harpSoundControl.reverb).toEqual("blah"));
 });
