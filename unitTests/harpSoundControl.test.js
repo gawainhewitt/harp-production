@@ -35,4 +35,6 @@ describe("setup audio", () => {
     expect(harpSoundControl.sampler).toBeInstanceOf(FakeTone.Sampler);
   });
   it("creates reverb", () => expect(harpSoundControl.reverb).toEqual("blah"));
+  it("connect's sampler to reverb", () =>
+    expect(harpSoundControl.sampler.connect()).toEqual("daschunds rule!"));
 });
