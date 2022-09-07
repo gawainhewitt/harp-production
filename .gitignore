@@ -3,3 +3,4 @@ bundle.js
 # Local Netlify folder
 .netlify
 dist
+coverage
