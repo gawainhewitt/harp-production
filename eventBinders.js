@@ -59,6 +59,10 @@ class EventBinders {
       handler(e);
     });
   }
+
+  bindTouchStart(handler) {
+    this.middlebox.addEventListener("touchstart", () => handler());
+  }
 }
 
 module.exports = EventBinders;
