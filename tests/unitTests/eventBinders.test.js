@@ -68,4 +68,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(selectstartMock).toHaveBeenCalled();
   });
+  test("mousedown events call handler function", () => {
+    const mousedownMock = jest.fn();
+    eventBinders.bindMouseDown(mousedownMock);
+
+    document.dispatchEvent(new MouseEvent("mousedown"));
+
+    expect(mousedownMock).toHaveBeenCalled();
+  });
 });

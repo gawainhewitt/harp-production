@@ -47,6 +47,12 @@ class EventBinders {
       handler(e);
     });
   }
+
+  bindMouseDown(handler) {
+    document.addEventListener("mousedown", (e) => {
+      handler(e);
+    });
+  }
 }
 
 module.exports = EventBinders;
