@@ -67,6 +67,10 @@ class EventBinders {
   bindTouchEnd(handler) {
     this.middlebox.addEventListener("touchend", handler);
   }
+
+  bindTouchMove(handler) {
+    this.middlebox.addEventListener("touchmove", handler);
+  }
 }
 
 module.exports = EventBinders;
