@@ -1,4 +1,4 @@
-const HarpSoundControl = require("../harpSoundControl");
+const HarpSoundControl = require("../../harpSoundControl");
 
 const FakeTone = {
   start: async function () {

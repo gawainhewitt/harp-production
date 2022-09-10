@@ -1,6 +1,6 @@
-const EventBinders = require("../eventBinders");
-const EventHandlers = require("../eventHandlers");
-const HarpSoundControl = require("../harpSoundControl");
+const EventBinders = require("../../eventBinders");
+const EventHandlers = require("../../eventHandlers");
+const HarpSoundControl = require("../../harpSoundControl");
 
 describe("setup", () => {
   const eventBinders = new EventBinders();
