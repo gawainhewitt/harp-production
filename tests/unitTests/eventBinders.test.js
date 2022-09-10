@@ -4,7 +4,7 @@ document.documentElement.innerHTML = html;
 
 const EventBinders = require("../../eventBinders");
 
-describe("Listeners added to dom", () => {
+describe("UI buttons call functions", () => {
   it("chord buttons call handler function", () => {
     const eventBinders = new EventBinders();
 
