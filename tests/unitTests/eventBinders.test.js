@@ -4,7 +4,7 @@ document.documentElement.innerHTML = html;
 
 const EventBinders = require("../../eventBinders");
 
-describe("UI buttons call functions", () => {
+describe("UI elements call functions upon interaction", () => {
   const eventBinders = new EventBinders();
 
   test("chord buttons call handler function", () => {
@@ -30,5 +30,33 @@ describe("UI buttons call functions", () => {
     startscreen.click();
 
     expect(startScreenMock).toHaveBeenCalled();
+  });
+  test("strings call handler function when mouse enters", () => {
+    let stringsArray = [];
+    for (let i = 0; i < 3; i++) {
+      stringsArray[i] = [];
+      for (let j = 0; j < 10; j++) {
+        stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);
+      }
+    }
+    const mouseEnterMock = jest.fn();
+
+    eventBinders.bindMouseEnter(mouseEnterMock);
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 10; j++) {
+        stringsArray[i][j].dispatchEvent(
+          new MouseEvent("mouseenter", {
+            view: window,
+            bubbles: true,
+            cancelable: true
+          })
+        );
+        expect(mouseEnterMock).toHaveBeenCalledWith("mouse", {
+          chord: i,
+          string: j
+        });
+      }
+    }
   });
 });
