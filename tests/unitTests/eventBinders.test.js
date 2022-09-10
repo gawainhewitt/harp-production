@@ -5,23 +5,30 @@ document.documentElement.innerHTML = html;
 const EventBinders = require("../../eventBinders");
 
 describe("UI buttons call functions", () => {
-  it("chord buttons call handler function", () => {
-    const eventBinders = new EventBinders();
+  const eventBinders = new EventBinders();
 
-    const myMock1 = jest.fn();
-
+  test("chord buttons call handler function", () => {
     let onechord = document.querySelector("#onechord");
     let twochord = document.querySelector("#twochord");
     let threechord = document.querySelector("#threechord");
+    const chordMock = jest.fn();
 
-    eventBinders.bindChordButtons(myMock1);
-
+    eventBinders.bindChordButtons(chordMock);
     onechord.click();
     twochord.click();
     threechord.click();
 
-    expect(myMock1).toHaveBeenCalledWith(0, "#onechord");
-    expect(myMock1).toHaveBeenCalledWith(1, "#twochord");
-    expect(myMock1).toHaveBeenCalledWith(2, "#threechord");
+    expect(chordMock).toHaveBeenCalledWith(0, "#onechord");
+    expect(chordMock).toHaveBeenCalledWith(1, "#twochord");
+    expect(chordMock).toHaveBeenCalledWith(2, "#threechord");
+  });
+  test("start screen calls handler function", () => {
+    let startscreen = document.querySelector("#startscreen");
+    const startScreenMock = jest.fn();
+
+    eventBinders.bindStartScreen(startScreenMock);
+    startscreen.click();
+
+    expect(startScreenMock).toHaveBeenCalled();
   });
 });

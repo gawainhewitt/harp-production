@@ -25,6 +25,12 @@ class EventBinders {
       handler(2, "#threechord");
     });
   }
+
+  bindStartScreen(handler) {
+    this.startscreen.addEventListener("click", () => {
+      handler();
+    });
+  }
 }
 
 module.exports = EventBinders;
