@@ -94,4 +94,14 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchstartMock).toHaveBeenCalled();
   });
+  test("touchend calls handler function", () => {
+    const touchendMock = jest.fn();
+    eventBinders.bindTouchEnd(touchendMock);
+
+    document
+      .querySelector("#middle-box")
+      .dispatchEvent(new TouchEvent("touchend"));
+
+    expect(touchendMock).toHaveBeenCalled();
+  });
 });
