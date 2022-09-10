@@ -53,6 +53,12 @@ class EventBinders {
       handler(e);
     });
   }
+
+  bindMouseUp(handler) {
+    document.addEventListener("mouseup", (e) => {
+      handler(e);
+    });
+  }
 }
 
 module.exports = EventBinders;
