@@ -79,6 +79,10 @@ class EventBinders {
   bindKeyDown(handler) {
     document.addEventListener("keydown", handler);
   }
+
+  bindKeyUp(handler) {
+    document.addEventListener("keyup", handler);
+  }
 }
 
 module.exports = EventBinders;

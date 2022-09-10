@@ -132,4 +132,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(keydownMock).toHaveBeenCalled();
   });
+  test("keyup calls handler function", () => {
+    const keyupMock = jest.fn();
+    eventBinders.bindKeyUp(keyupMock);
+
+    document.dispatchEvent(new Event("keyup"));
+
+    expect(keyupMock).toHaveBeenCalled();
+  });
 });
