@@ -71,6 +71,10 @@ class EventBinders {
   bindTouchMove(handler) {
     this.middlebox.addEventListener("touchmove", handler);
   }
+
+  bindTouchCancel(handler) {
+    this.middlebox.addEventListener("touchcancel", handler);
+  }
 }
 
 module.exports = EventBinders;

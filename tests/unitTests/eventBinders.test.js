@@ -114,4 +114,14 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchmoveMock).toHaveBeenCalled();
   });
+  test("touchcancel calls handler function", () => {
+    const touchcancelMock = jest.fn();
+    eventBinders.bindTouchCancel(touchcancelMock);
+
+    document
+      .querySelector("#middle-box")
+      .dispatchEvent(new TouchEvent("touchcancel"));
+
+    expect(touchcancelMock).toHaveBeenCalled();
+  });
 });
