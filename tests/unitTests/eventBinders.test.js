@@ -1,3 +1,4 @@
+const exp = require("constants");
 const fs = require("fs");
 const html = fs.readFileSync("./index.html");
 document.documentElement.innerHTML = html;
@@ -58,5 +59,13 @@ describe("UI elements call functions upon interaction", () => {
         });
       }
     }
+  });
+  test("selectstart event calls handler function", () => {
+    const selectstartMock = jest.fn();
+    eventBinders.bindSelectStart(selectstartMock);
+
+    document.dispatchEvent(new Event("selectstart"));
+
+    expect(selectstartMock).toHaveBeenCalled();
   });
 });

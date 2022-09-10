@@ -41,6 +41,12 @@ class EventBinders {
       }
     }
   }
+
+  bindSelectStart(handler) {
+    document.addEventListener("selectstart", (e) => {
+      handler(e);
+    });
+  }
 }
 
 module.exports = EventBinders;
