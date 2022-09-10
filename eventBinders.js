@@ -75,6 +75,10 @@ class EventBinders {
   bindTouchCancel(handler) {
     this.middlebox.addEventListener("touchcancel", handler);
   }
+
+  bindKeyDown(handler) {
+    document.addEventListener("keydown", handler);
+  }
 }
 
 module.exports = EventBinders;

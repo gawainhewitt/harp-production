@@ -124,4 +124,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchcancelMock).toHaveBeenCalled();
   });
+  test("keydown calls handler function", () => {
+    const keydownMock = jest.fn();
+    eventBinders.bindKeyDown(keydownMock);
+
+    document.dispatchEvent(new Event("keydown"));
+
+    expect(keydownMock).toHaveBeenCalled();
+  });
 });
