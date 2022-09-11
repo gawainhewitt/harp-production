@@ -26,7 +26,7 @@ class HarpSoundControl {
     console.log("Audio Started");
   };
 
-  setUpSampler = async function (callback) {
+  async setUpSampler(callback) {
     this.sampler = new this.Tone.Sampler({
       urls: {
         C4: "Harp-C4.mp3"
@@ -49,7 +49,7 @@ class HarpSoundControl {
       release: 8,
       volume: -6
     });
-  };
+  }
 
   playNote = (whichString) => {
     this.sampler.triggerAttack(
