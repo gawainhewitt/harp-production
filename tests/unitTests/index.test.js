@@ -2,9 +2,32 @@ const EventBinders = require("../../eventBinders");
 const EventHandlers = require("../../eventHandlers");
 const HarpSoundControl = require("../../harpSoundControl");
 
+const FakeTone = {
+  start: async function () {
+    setTimeout(() => {}, 200);
+  },
+  Sampler: class {
+    constructor(params) {}
+    connect = () => {
+      return "daschunds rule!";
+    };
+    set = () => {};
+    triggerAttack = (note, time) => {
+      this.theNote = note;
+    };
+  },
+  Reverb: class {
+    constructor(params) {}
+    toDestination = () => {
+      return "blah";
+    };
+  },
+  now: () => {}
+};
+
 describe("setup", () => {
   const eventBinders = new EventBinders();
-  const harpSoundControl = new HarpSoundControl();
+  const harpSoundControl = new HarpSoundControl(FakeTone);
   const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
 
   it("creates instance of class EventBinders", () =>
