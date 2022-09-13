@@ -1,4 +1,3 @@
-const exp = require("constants");
 const fs = require("fs");
 const html = fs.readFileSync("./index.html");
 document.documentElement.innerHTML = html;
