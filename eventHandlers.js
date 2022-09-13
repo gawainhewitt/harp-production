@@ -11,9 +11,11 @@ class EventHandlers {
     this.harpSoundControl.setUpSampler(this.displayStartButton);
   }
 
-  displayStartButton = () => {
-    this.eventBinder.bindStartScreen(this.hideStartScreen); // get this actioned once sounds have loaded
-  };
+  displayStartButton() {
+    this.eventBinders.bindStartScreen(this.hideStartScreen); // get this actioned once sounds have loaded
+  }
+
+  hideStartScreen() {}
 }
 
 module.exports = EventHandlers;
