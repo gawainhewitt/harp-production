@@ -11,16 +11,13 @@ beforeEach(() => {
   HarpSoundControl.mockClear();
 });
 
-test("constructor", () => {
+test("constructor sets up class instances correctly", () => {
   const harpSoundControl = new HarpSoundControl();
   const eventBinders = new EventBinders();
   const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
 
-  expect(HarpSoundControl).toHaveBeenCalled();
-  expect(EventBinders).toHaveBeenCalled();
-});
-
-it("mockClear is working", () => {
-  expect(HarpSoundControl).not.toHaveBeenCalled();
-  expect(EventBinders).not.toHaveBeenCalled();
+  expect(HarpSoundControl).toHaveBeenCalledTimes(1);
+  expect(EventBinders).toHaveBeenCalledTimes(1);
+  expect(eventHandlers.harpSoundControl).toBeInstanceOf(HarpSoundControl);
+  expect(eventHandlers.eventBinders).toBeInstanceOf(EventBinders);
 });
