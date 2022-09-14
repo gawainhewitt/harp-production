@@ -1,3 +1,7 @@
+const fs = require("fs");
+const html = fs.readFileSync("./index.html");
+document.documentElement.innerHTML = html;
+
 const EventBinders = require("../../eventBinders");
 const EventHandlers = require("../../eventHandlers");
 const HarpSoundControl = require("../../harpSoundControl");
