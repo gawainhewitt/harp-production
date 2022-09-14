@@ -19,8 +19,8 @@ class HarpSoundControl {
      "C8", "C#8", "D8", "D#8", "E8", "F8", "F#8", "G8", "G#8", "A8", "A#8", "B8"];
   }
 
-  async startAudio() {
-    await this.Tone.start();
+  startAudio() {
+    this.Tone.start();
     console.log("Audio Started");
   }
 
