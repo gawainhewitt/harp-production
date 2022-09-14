@@ -114,4 +114,17 @@ describe("handlers", () => {
       "stringMock"
     );
   });
+  test("stringIsPlucked calls playNote if type is not mouse", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+
+    eventHandlers.stringIsPlucked("touch", "stringMock2");
+
+    expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
+      "stringMock2"
+    );
+  });
 });

@@ -42,6 +42,9 @@ class EventHandlers {
         console.log(`type = ${type}`);
         this.harpSoundControl.playNote(whichString);
       }
+    } else {
+      console.log(`type = ${type}`);
+      this.harpSoundControl.playNote(whichString);
     }
   };
 }
