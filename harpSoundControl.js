@@ -51,12 +51,12 @@ class HarpSoundControl {
     });
   }
 
-  playNote = (whichString) => {
+  playNote(whichString) {
     this.sampler.triggerAttack(
       this.chordArray[whichString.chord][whichString.string],
       this.Tone.now()
     );
-  };
+  }
 }
 
 module.exports = HarpSoundControl;
