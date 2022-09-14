@@ -61,7 +61,7 @@ class EventBinders {
   }
 
   bindTouchStart(handler) {
-    this.middlebox.addEventListener("touchstart", () => handler());
+    this.middlebox.addEventListener("touchstart", handler);
   }
 
   bindTouchEnd(handler) {
