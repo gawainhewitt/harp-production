@@ -1,7 +1,6 @@
-const Tone = require("./node_modules/tone");
-
 class HarpSoundControl {
-  constructor() {
+  constructor(Tone) {
+    this.Tone = Tone;
     this.chordArray = [
       ["C3", "E3", "G3", "C4", "E4", "G4", "C5", "E5", "G5", "C6"],
       ["F3", "A3", "C4", "F4", "A4", "C5", "F5", "A5", "C6", "F6"],
@@ -20,12 +19,12 @@ class HarpSoundControl {
   }
 
   startAudio = () => {
-    Tone.start();
+    this.Tone.start();
     console.log("Audio Started");
   };
 
   setUpSampler = (callback) => {
-    this.sampler = new Tone.Sampler({
+    this.sampler = new this.Tone.Sampler({
       urls: {
         C4: "Harp-C4.mp3"
       },
@@ -35,7 +34,7 @@ class HarpSoundControl {
       }
     });
 
-    this.reverb = new Tone.Reverb({
+    this.reverb = new this.Tone.Reverb({
       decay: 3,
       predelay: 0,
       wet: 0.5
@@ -52,7 +51,7 @@ class HarpSoundControl {
   playNote = (whichString) => {
     this.sampler.triggerAttack(
       this.chordArray[whichString.chord][whichString.string],
-      Tone.now()
+      this.Tone.now()
     );
   };
 }
