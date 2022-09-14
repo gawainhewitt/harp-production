@@ -66,4 +66,16 @@ describe("handlers", () => {
     expect(document.querySelector(".two").style.display).toEqual("flex");
     expect(document.querySelector(".one").style.display).toEqual("none");
   });
+
+  test("hideStartScreen calls harpSoundcontrol.startAudio", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+
+    eventHandlers.hideStartScreen();
+
+    expect(mockHarpSoundControlInstance.startAudio).toHaveBeenCalled();
+  });
 });

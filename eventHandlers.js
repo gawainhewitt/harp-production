@@ -32,7 +32,9 @@ class EventHandlers {
     this.eventBinders.bindStartScreen(this.hideStartScreen); // get this actioned once sounds have loaded
   }
 
-  hideStartScreen() {}
+  hideStartScreen() {
+    this.harpSoundControl.startAudio();
+  }
 }
 
 module.exports = EventHandlers;
