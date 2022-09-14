@@ -19,7 +19,6 @@ class EventHandlers {
     console.log(this.chordButtonState);
     for (let i = 0; i < this.chordButtonState.length; i++) {
       if (this.chordButtonState[i]) {
-        console.log("are we here?");
         document.querySelector(chordBlockClasses[i]).style.display = "flex";
         // john suggesting I could instead create and destroy a class here rather than change the style
       } else {
@@ -36,6 +35,15 @@ class EventHandlers {
     this.harpSoundControl.startAudio();
     this.eventBinders.startscreen.style.display = "none";
   }
+
+  stringIsPlucked = (type, whichString) => {
+    if (type === "mouse") {
+      if (this.mouseDown) {
+        console.log(`type = ${type}`);
+        this.harpSoundControl.playNote(whichString);
+      }
+    }
+  };
 }
 
 module.exports = EventHandlers;

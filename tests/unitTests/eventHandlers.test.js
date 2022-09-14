@@ -60,7 +60,7 @@ describe("handlers", () => {
 
     expect(document.querySelector(".two").style.display).toEqual("none");
 
-    eventHandlers.switchChords(1, "poodle");
+    eventHandlers.switchChords(1, "oxen");
     eventHandlers.switchChords(0, "fox");
 
     expect(document.querySelector(".two").style.display).toEqual("flex");
@@ -96,11 +96,22 @@ describe("handlers", () => {
 
     eventHandlers.hideStartScreen();
 
-    // expect(document.querySelector("#startscreen").style.display).toEqual(
-    //   "none"
-    // );
     expect(eventHandlers.eventBinders.startscreen.style.display).toEqual(
       "none"
+    );
+  });
+  test("stringIsPlucked calls playNote if type is mouse and mouseDown", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+
+    eventHandlers.mouseDown = true;
+    eventHandlers.stringIsPlucked("mouse", "stringMock");
+
+    expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
+      "stringMock"
     );
   });
 });
