@@ -107,12 +107,22 @@ describe("handlers", () => {
 
     const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
 
-    eventHandlers.mouseDown = true;
+    const myMock = {
+      preventDefault: jest.fn()
+    };
+
+    eventHandlers.registerMouseDown(myMock);
     eventHandlers.stringIsPlucked("mouse", "stringMock");
 
     expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
       "stringMock"
     );
+
+    eventHandlers.registerMouseUp();
+
+    eventHandlers.stringIsPlucked("mouse", "stringMock");
+
+    expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledTimes(1);
   });
   test("stringIsPlucked calls playNote if type is not mouse", () => {
     const harpSoundControl = new HarpSoundControl();

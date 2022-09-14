@@ -51,6 +51,15 @@ class EventHandlers {
   disableSelect = (e) => {
     e.preventDefault();
   };
+
+  registerMouseDown = (e) => {
+    this.disableSelect(e);
+    this.mouseDown = true;
+  };
+
+  registerMouseUp = () => {
+    this.mouseDown = false;
+  };
 }
 
 module.exports = EventHandlers;
