@@ -22,7 +22,6 @@ class EventHandlers {
     this.eventBinders.bindMouseDown(this.registerMouseDown);
     this.eventBinders.bindMouseUp(this.registerMouseUp);
     this.eventBinders.bindKeyDown(this.handleKeyDown);
-    this.eventBinders.bindKeyUp(this.handleKeyUp);
     this.eventBinders.bindTouchStart(this.handleTouchStart);
     this.eventBinders.bindTouchEnd(this.#handleTouchEnd);
     this.eventBinders.bindTouchMove(this.#handleTouchMove);
@@ -47,14 +46,16 @@ class EventHandlers {
     }
   };
 
-  displayStartButton() {
+  displayStartButton = () => {
+    console.log("goats");
     this.eventBinders.bindStartScreen(this.hideStartScreen); // get this actioned once sounds have loaded
-  }
+  };
 
-  hideStartScreen() {
+  hideStartScreen = () => {
+    console.log("click");
     this.harpSoundControl.startAudio();
     this.eventBinders.startscreen.style.display = "none";
-  }
+  };
 
   stringIsPlucked = (type, whichString) => {
     if (type === "mouse") {
