@@ -18,12 +18,12 @@ class HarpSoundControl {
      "C8", "C#8", "D8", "D#8", "E8", "F8", "F#8", "G8", "G#8", "A8", "A#8", "B8"];
   }
 
-  startAudio = () => {
+  startAudio() {
     this.Tone.start();
     console.log("Audio Started");
-  };
+  }
 
-  setUpSampler = (callback) => {
+  setUpSampler(callback) {
     this.sampler = new this.Tone.Sampler({
       urls: {
         C4: "Harp-C4.mp3"
@@ -46,14 +46,14 @@ class HarpSoundControl {
       release: 8,
       volume: -6
     });
-  };
+  }
 
-  playNote = (whichString) => {
+  playNote(whichString) {
     this.sampler.triggerAttack(
       this.chordArray[whichString.chord][whichString.string],
       this.Tone.now()
     );
-  };
+  }
 }
 
 module.exports = HarpSoundControl;
