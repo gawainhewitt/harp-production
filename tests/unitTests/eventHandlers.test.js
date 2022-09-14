@@ -188,6 +188,16 @@ describe("handlers", () => {
     expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 0 });
   });
   // it("plays a note when screen touched", () => {
+  //   jest.mock("../../eventHandlers", () => {
+  //     const originalModule = jest.requireActual("../../eventHandlers");
+
+  //     return {
+  //       __esModule: true,
+  //       ...originalModule,
+  //       showElement: jest.fn()
+  //     };
+  //   });
+
   //   const harpSoundControl = new HarpSoundControl();
   //   const eventBinders = new EventBinders();
   //   const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
