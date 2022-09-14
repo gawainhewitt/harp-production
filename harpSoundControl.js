@@ -1,5 +1,3 @@
-const Tone = require("./node_modules/tone");
-
 class HarpSoundControl {
   constructor(Tone) {
     this.Tone = Tone;
