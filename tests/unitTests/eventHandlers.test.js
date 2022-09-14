@@ -71,7 +71,18 @@ describe("handlers", () => {
     const harpSoundControl = new HarpSoundControl();
     EventBinders.mockImplementationOnce(() => {
       return {
-        startscreen: document.querySelector("#startscreen")
+        startscreen: document.querySelector("#startscreen"),
+        bindMouseEnter: jest.fn(),
+        bindSelectStart: jest.fn(),
+        bindMouseDown: jest.fn(),
+        bindMouseUp: jest.fn(),
+        bindKeyDown: jest.fn(),
+        bindKeyUp: jest.fn(),
+        bindTouchStart: jest.fn(),
+        bindTouchEnd: jest.fn(),
+        bindTouchMove: jest.fn(),
+        bindTouchCancel: jest.fn(),
+        bindChordButtons: jest.fn()
       };
     });
     const eventBinders = new EventBinders();
@@ -88,7 +99,18 @@ describe("handlers", () => {
     const harpSoundControl = new HarpSoundControl();
     EventBinders.mockImplementationOnce(() => {
       return {
-        startscreen: document.querySelector("#startscreen")
+        startscreen: document.querySelector("#startscreen"),
+        bindMouseEnter: jest.fn(),
+        bindSelectStart: jest.fn(),
+        bindMouseDown: jest.fn(),
+        bindMouseUp: jest.fn(),
+        bindKeyDown: jest.fn(),
+        bindKeyUp: jest.fn(),
+        bindTouchStart: jest.fn(),
+        bindTouchEnd: jest.fn(),
+        bindTouchMove: jest.fn(),
+        bindTouchCancel: jest.fn(),
+        bindChordButtons: jest.fn()
       };
     });
     const eventBinders = new EventBinders();
@@ -165,4 +187,29 @@ describe("handlers", () => {
 
     expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 0 });
   });
+  // it("plays a note when screen touched", () => {
+  //   const harpSoundControl = new HarpSoundControl();
+  //   const eventBinders = new EventBinders();
+  //   const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+  //   // const stringPosition = document
+  //   //   .querySelector("#c0s0")
+  //   //   .getBoundingClientRect();
+
+  //   // console.log(stringPosition);
+
+  //   const mockTouch = {
+  //     identifier: "sportPants",
+  //     clientX: 0,
+  //     clientY: 0,
+  //     preventDefault: jest.fn(),
+  //     changedTouches: [{ identifier: "sportPants", clientX: 0, clientY: 0 }]
+  //   };
+
+  //   eventHandlers.handleTouchStart(mockTouch);
+  // });
+
+  // can't find a way to test further as document.elementFromPoint ends up being
+  // called - and there is no layout in JSDOM, so this feature is not implemented
+  // and therefore I can't test
 });
