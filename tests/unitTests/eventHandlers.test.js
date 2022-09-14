@@ -51,7 +51,7 @@ describe("handlers", () => {
       eventHandlers.hideStartScreen
     );
   });
-  test("css display set to none when chord button pressed", () => {
+  test("switchcords toggles css display", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
     const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
@@ -59,5 +59,11 @@ describe("handlers", () => {
     eventHandlers.switchChords(1, "poodle");
 
     expect(document.querySelector(".two").style.display).toEqual("none");
+
+    eventHandlers.switchChords(1, "poodle");
+    eventHandlers.switchChords(0, "fox");
+
+    expect(document.querySelector(".two").style.display).toEqual("flex");
+    expect(document.querySelector(".one").style.display).toEqual("none");
   });
 });
