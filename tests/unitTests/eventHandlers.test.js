@@ -150,4 +150,19 @@ describe("handlers", () => {
 
     expect(myMock.preventDefault).toHaveBeenCalled();
   });
+  it("plays a note when a key is presses", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    const myMock = {
+      code: "KeyA"
+    };
+
+    const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
+
+    eventHandlers.handleKeyDown(myMock);
+
+    expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 0 });
+  });
 });
