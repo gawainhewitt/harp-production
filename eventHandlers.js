@@ -47,6 +47,10 @@ class EventHandlers {
       this.harpSoundControl.playNote(whichString);
     }
   };
+
+  disableSelect = (e) => {
+    e.preventDefault();
+  };
 }
 
 module.exports = EventHandlers;

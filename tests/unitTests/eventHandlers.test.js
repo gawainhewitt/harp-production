@@ -127,4 +127,17 @@ describe("handlers", () => {
       "stringMock2"
     );
   });
+  test("disableSelect calls parameter.preventDefault", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    const myMock = {
+      preventDefault: jest.fn()
+    };
+
+    eventHandlers.disableSelect(myMock);
+
+    expect(myMock.preventDefault).toHaveBeenCalled();
+  });
 });
