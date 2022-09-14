@@ -69,7 +69,13 @@ describe("handlers", () => {
 
   test("hideStartScreen calls harpSoundcontrol.startAudio", () => {
     const harpSoundControl = new HarpSoundControl();
+    EventBinders.mockImplementationOnce(() => {
+      return {
+        startscreen: document.querySelector("#startscreen")
+      };
+    });
     const eventBinders = new EventBinders();
+
     const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
 
     const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
@@ -77,5 +83,24 @@ describe("handlers", () => {
     eventHandlers.hideStartScreen();
 
     expect(mockHarpSoundControlInstance.startAudio).toHaveBeenCalled();
+  });
+  test("hideStartScreen changes css display to none", () => {
+    const harpSoundControl = new HarpSoundControl();
+    EventBinders.mockImplementationOnce(() => {
+      return {
+        startscreen: document.querySelector("#startscreen")
+      };
+    });
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    eventHandlers.hideStartScreen();
+
+    // expect(document.querySelector("#startscreen").style.display).toEqual(
+    //   "none"
+    // );
+    expect(eventHandlers.eventBinders.startscreen.style.display).toEqual(
+      "none"
+    );
   });
 });

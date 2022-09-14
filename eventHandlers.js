@@ -34,6 +34,7 @@ class EventHandlers {
 
   hideStartScreen() {
     this.harpSoundControl.startAudio();
+    this.eventBinders.startscreen.style.display = "none";
   }
 }
 
