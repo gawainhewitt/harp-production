@@ -21,10 +21,10 @@ class HarpSoundControl {
      "C8", "C#8", "D8", "D#8", "E8", "F8", "F#8", "G8", "G#8", "A8", "A#8", "B8"];
   }
 
-  startAudio = async function () {
+  async startAudio() {
     await this.Tone.start();
     console.log("Audio Started");
-  };
+  }
 
   async setUpSampler(callback) {
     this.sampler = new this.Tone.Sampler({
