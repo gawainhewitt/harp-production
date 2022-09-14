@@ -47,7 +47,6 @@ class EventHandlers {
   };
 
   displayStartButton = () => {
-    console.log("goats");
     this.eventBinders.bindStartScreen(this.hideStartScreen); // get this actioned once sounds have loaded
   };
 
