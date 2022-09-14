@@ -1,5 +1,3 @@
-const Tone = require("./node_modules/tone");
-
 const EventBinders = require("./eventBinders");
 const EventHandlers = require("./eventHandlers");
 const HarpSoundControl = require("./harpSoundControl");
