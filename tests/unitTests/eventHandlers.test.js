@@ -1,3 +1,7 @@
+const fs = require("fs");
+const html = fs.readFileSync("./index.html");
+document.documentElement.innerHTML = html;
+
 const EventBinders = require("../../eventBinders");
 const EventHandlers = require("../../eventHandlers");
 const HarpSoundControl = require("../../harpSoundControl");
@@ -46,5 +50,14 @@ describe("handlers", () => {
     expect(mockEventBinders.bindStartScreen).toHaveBeenCalledWith(
       eventHandlers.hideStartScreen
     );
+  });
+  test("css display set to none when chord button pressed", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    eventHandlers.switchChords(1, "poodle");
+
+    expect(document.querySelector(".two").style.display).toEqual("none");
   });
 });
