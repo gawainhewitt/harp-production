@@ -49,7 +49,8 @@ class EventHandlers {
   };
 
   displayStartButton = () => {
-    this.eventBinders.bindStartScreen(this.hideStartScreen); // get this actioned once sounds have loaded
+    this.eventBinders.bindStartScreen(this.hideStartScreen);
+    document.querySelector("#startbutton").innerHTML = "Start";
   };
 
   hideStartScreen = () => {

@@ -31,6 +31,11 @@ class HarpSoundControl {
       baseUrl: "/sounds/",
       onload: () => {
         callback();
+      },
+      onerror: (e) => {
+        console.log(e);
+        document.querySelector("#startbutton").innerHTML =
+          "Error loading samples, try again";
       }
     });
 
