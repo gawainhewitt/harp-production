@@ -60,7 +60,7 @@ body {
   justify-content: space-around;
 }
 
-.leftspace {
+.rightspace {
   display: flex;
   flex: 1;
   flex-direction: column;
