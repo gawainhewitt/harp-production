@@ -40,6 +40,7 @@ body {
   /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
   height: 90vh;
   display: flex;
+  flex-direction: column;
   background: white;
 }
 
