@@ -79,6 +79,9 @@ body {
   flex: 2;
   flex-direction: column;
   justify-content: space-around;
+  font-size: 5em;
+  text-align: center;
+  color: azure;
 }
 
 .two {
