@@ -79,7 +79,7 @@ body {
   flex: 2;
   flex-direction: column;
   justify-content: space-around;
-  font-size: 4em;
+  font-size: 2em;
   text-align: center;
   color: azure;
 }
