@@ -7,7 +7,7 @@ class EventBinders {
         this.stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);
       }
     }
-    this.middlebox = document.querySelector("#middle-box");
+    this.middlebox = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
     this.onechord = document.querySelector("#onechord");
     this.twochord = document.querySelector("#twochord");
