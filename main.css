@@ -36,7 +36,10 @@ body {
   justify-content: space-around;
 }
 
-#middle-box {
+#player-interface {
+}
+
+#chord-container {
   /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
   height: 80vh;
   display: flex;
@@ -54,6 +57,20 @@ body {
   display: flex;
   flex: 1;
   flex-direction: row;
+  justify-content: space-around;
+}
+
+.strings {
+  display: flex;
+  flex: 5;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.chordName {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   justify-content: space-around;
 }
 
