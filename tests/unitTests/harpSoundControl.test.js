@@ -50,6 +50,6 @@ describe("making a sound", () => {
     harpSoundControl.setUpSampler();
 
     harpSoundControl.playNote({ chord: 0, string: 3 });
-    expect(harpSoundControl.sampler.theNote).toEqual("C4");
+    expect(harpSoundControl.sampler.theNote).toEqual("G4");
   });
 });
