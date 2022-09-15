@@ -7,7 +7,7 @@ class EventBinders {
         this.stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);
       }
     }
-    this.middlebox = document.querySelector("#chord-container");
+    this.chordContainer = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
     this.onechord = document.querySelector("#onechord");
     this.twochord = document.querySelector("#twochord");
@@ -61,19 +61,19 @@ class EventBinders {
   }
 
   bindTouchStart(handler) {
-    this.middlebox.addEventListener("touchstart", handler);
+    this.chordContainer.addEventListener("touchstart", handler);
   }
 
   bindTouchEnd(handler) {
-    this.middlebox.addEventListener("touchend", handler);
+    this.chordContainer.addEventListener("touchend", handler);
   }
 
   bindTouchMove(handler) {
-    this.middlebox.addEventListener("touchmove", handler);
+    this.chordContainer.addEventListener("touchmove", handler);
   }
 
   bindTouchCancel(handler) {
-    this.middlebox.addEventListener("touchcancel", handler);
+    this.chordContainer.addEventListener("touchcancel", handler);
   }
 
   bindKeyDown(handler) {
