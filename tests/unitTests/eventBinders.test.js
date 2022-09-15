@@ -88,7 +88,7 @@ describe("UI elements call functions upon interaction", () => {
     eventBinders.bindTouchStart(touchstartMock);
 
     document
-      .querySelector("#middle-box")
+      .querySelector("#chord-container")
       .dispatchEvent(new TouchEvent("touchstart"));
 
     expect(touchstartMock).toHaveBeenCalled();
@@ -98,7 +98,7 @@ describe("UI elements call functions upon interaction", () => {
     eventBinders.bindTouchEnd(touchendMock);
 
     document
-      .querySelector("#middle-box")
+      .querySelector("#chord-container")
       .dispatchEvent(new TouchEvent("touchend"));
 
     expect(touchendMock).toHaveBeenCalled();
@@ -108,7 +108,7 @@ describe("UI elements call functions upon interaction", () => {
     eventBinders.bindTouchMove(touchmoveMock);
 
     document
-      .querySelector("#middle-box")
+      .querySelector("#chord-container")
       .dispatchEvent(new TouchEvent("touchmove"));
 
     expect(touchmoveMock).toHaveBeenCalled();
@@ -118,7 +118,7 @@ describe("UI elements call functions upon interaction", () => {
     eventBinders.bindTouchCancel(touchcancelMock);
 
     document
-      .querySelector("#middle-box")
+      .querySelector("#chord-container")
       .dispatchEvent(new TouchEvent("touchcancel"));
 
     expect(touchcancelMock).toHaveBeenCalled();
