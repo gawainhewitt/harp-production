@@ -60,16 +60,23 @@ body {
   justify-content: space-around;
 }
 
+.leftspace {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .strings {
   display: flex;
-  flex: 5;
+  flex: 20;
   flex-direction: row;
   justify-content: space-around;
 }
 
 .chordName {
   display: flex;
-  flex: 1;
+  flex: 2;
   flex-direction: column;
   justify-content: space-around;
 }
