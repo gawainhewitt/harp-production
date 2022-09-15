@@ -187,6 +187,29 @@ describe("handlers", () => {
 
     expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 0 });
   });
+  it("note does not repeat when held down", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const eventHandlers = new EventHandlers(eventBinders, harpSoundControl);
+
+    const myMock = {
+      code: "KeyD"
+    };
+
+    const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
+
+    eventHandlers.handleKeyDown(myMock);
+    eventHandlers.handleKeyDown(myMock);
+
+    expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 2 });
+    expect(spy).toHaveBeenCalledTimes(1);
+
+    eventHandlers.handleKeyUp(myMock);
+
+    eventHandlers.handleKeyDown(myMock);
+
+    expect(spy).toHaveBeenCalledTimes(2);
+  });
   // it("plays a note when screen touched", () => {
   //   jest.mock("../../eventHandlers", () => {
   //     const originalModule = jest.requireActual("../../eventHandlers");

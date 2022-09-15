@@ -22,6 +22,7 @@ class EventHandlers {
     this.eventBinders.bindMouseDown(this.registerMouseDown);
     this.eventBinders.bindMouseUp(this.registerMouseUp);
     this.eventBinders.bindKeyDown(this.handleKeyDown);
+    this.eventBinders.bindKeyUp(this.handleKeyUp);
     this.eventBinders.bindTouchStart(this.handleTouchStart);
     this.eventBinders.bindTouchEnd(this.#handleTouchEnd);
     this.eventBinders.bindTouchMove(this.#handleTouchMove);
@@ -29,6 +30,7 @@ class EventHandlers {
     this.harpSoundControl.setUpSampler(this.displayStartButton);
     this.eventBinders.bindChordButtons(this.switchChords);
     this.chordButtonState = [true, true, true];
+    this.keyIsDown = {};
   }
 
   switchChords = (button, buttonId) => {
@@ -83,8 +85,16 @@ class EventHandlers {
 
   handleKeyDown = (e) => {
     let key = e.code;
-    this.#whichKey(key);
-    console.log("keydown " + key); //debugging
+    if (key in this.keyIsDown === false) {
+      this.keyIsDown[key] = true;
+      this.#whichKey(key);
+      console.log("keydown " + key); //debugging
+    }
+  };
+
+  handleKeyUp = (e) => {
+    let key = e.code;
+    delete this.keyIsDown[key];
   };
 
   #whichKey = (key) => {
