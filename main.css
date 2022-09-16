@@ -93,7 +93,7 @@ p {
   font-size: 2em;
 }
 
-#startscreen {
+.startscreen {
   margin: 0 auto;
   background: rgb(148, 207, 148);
   height: 100vh;
