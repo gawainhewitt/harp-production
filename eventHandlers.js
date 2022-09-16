@@ -4,7 +4,7 @@ class EventHandlers {
     this.harpSoundControl = harpSoundControl;
     this.cssManager = cssManager;
 
-    this.cssManager.beginningState();
+    this.cssManager.setInitialClass();
 
     this.ongoingTouches = [];
     this.touchesOnElements = [];
@@ -38,7 +38,7 @@ class EventHandlers {
   }
 
   switchChords = (button, buttonId) => {
-    const chordBlockClasses = [".one", ".two", ".three"];
+    const chordBlockClasses = [".zero", ".one", ".two"];
     console.log(`button id = ${buttonId}`);
     this.chordButtonState[button] = !this.chordButtonState[button];
     console.log(this.chordButtonState);

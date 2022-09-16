@@ -79,13 +79,13 @@ describe("handlers", () => {
 
     eventHandlers.switchChords(1, "poodle");
 
-    expect(document.querySelector(".two").style.display).toEqual("none");
+    expect(document.querySelector(".one").style.display).toEqual("none");
 
     eventHandlers.switchChords(1, "oxen");
     eventHandlers.switchChords(0, "fox");
 
-    expect(document.querySelector(".two").style.display).toEqual("flex");
-    expect(document.querySelector(".one").style.display).toEqual("none");
+    expect(document.querySelector(".one").style.display).toEqual("flex");
+    expect(document.querySelector(".zero").style.display).toEqual("none");
   });
 
   test("hideStartScreen calls harpSoundcontrol.startAudio", () => {

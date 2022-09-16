@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.top-box {
+.topbox {
   /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
   height: 10vh;
   background: cyan;
@@ -30,17 +30,9 @@
   background: white;
 }
 
-.bottom-box {
+.bottombox {
   height: 10vh;
   background: yellow;
-}
-
-.one {
-  background: brown;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-around;
 }
 
 .rightspace {
@@ -50,14 +42,14 @@
   justify-content: space-around;
 }
 
-.strings {
+.stringscontainer {
   display: flex;
   flex: 20;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.chordName {
+.chordname {
   display: flex;
   flex: 2;
   flex-direction: column;
@@ -67,7 +59,15 @@
   color: azure;
 }
 
-.two {
+.zero {
+  background: brown;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.one {
   background: grey;
   display: flex;
   flex: 1;
@@ -75,7 +75,7 @@
   justify-content: space-around;
 }
 
-.three {
+.two {
   background: black;
   display: flex;
   flex: 1;

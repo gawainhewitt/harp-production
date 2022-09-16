@@ -8,19 +8,19 @@ describe("UI elements call functions upon interaction", () => {
   const eventBinders = new EventBinders();
 
   test("chord buttons call handler function", () => {
-    let onechord = document.querySelector("#onechord");
-    let twochord = document.querySelector("#twochord");
-    let threechord = document.querySelector("#threechord");
+    let zerochordbutton = document.querySelector("#zerochordbutton");
+    let onechordbutton = document.querySelector("#onechordbutton");
+    let twochordbutton = document.querySelector("#twochordbutton");
     const chordMock = jest.fn();
 
     eventBinders.bindChordButtons(chordMock);
-    onechord.click();
-    twochord.click();
-    threechord.click();
+    zerochordbutton.click();
+    onechordbutton.click();
+    twochordbutton.click();
 
-    expect(chordMock).toHaveBeenCalledWith(0, "#onechord");
-    expect(chordMock).toHaveBeenCalledWith(1, "#twochord");
-    expect(chordMock).toHaveBeenCalledWith(2, "#threechord");
+    expect(chordMock).toHaveBeenCalledWith(0, "#zerochordbutton");
+    expect(chordMock).toHaveBeenCalledWith(1, "#onechordbutton");
+    expect(chordMock).toHaveBeenCalledWith(2, "#twochordbutton");
   });
   test("start screen calls handler function", () => {
     let startscreen = document.querySelector("#startscreen");

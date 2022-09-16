@@ -9,20 +9,20 @@ class EventBinders {
     }
     this.chordContainer = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
-    this.onechord = document.querySelector("#onechord");
-    this.twochord = document.querySelector("#twochord");
-    this.threechord = document.querySelector("#threechord");
+    this.zerochordbutton = document.querySelector("#zerochordbutton");
+    this.onechordbutton = document.querySelector("#onechordbutton");
+    this.twochordbutton = document.querySelector("#twochordbutton");
   }
 
   bindChordButtons(handler) {
-    this.onechord.addEventListener("click", () => {
-      handler(0, "#onechord");
+    this.zerochordbutton.addEventListener("click", () => {
+      handler(0, "#zerochordbutton");
     });
-    this.twochord.addEventListener("click", () => {
-      handler(1, "#twochord");
+    this.onechordbutton.addEventListener("click", () => {
+      handler(1, "#onechordbutton");
     });
-    this.threechord.addEventListener("click", () => {
-      handler(2, "#threechord");
+    this.twochordbutton.addEventListener("click", () => {
+      handler(2, "#twochordbutton");
     });
   }
 
