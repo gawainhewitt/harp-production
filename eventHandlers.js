@@ -1,7 +1,11 @@
 class EventHandlers {
-  constructor(eventBinders, harpSoundControl) {
+  constructor(eventBinders, harpSoundControl, cssManager) {
     this.eventBinders = eventBinders;
     this.harpSoundControl = harpSoundControl;
+    this.cssManager = cssManager;
+
+    this.cssManager.beginningState();
+
     this.ongoingTouches = [];
     this.touchesOnElements = [];
     this.mouseEnterCount = 0;
