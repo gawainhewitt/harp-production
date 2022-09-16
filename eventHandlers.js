@@ -37,19 +37,11 @@ class EventHandlers {
     this.keyIsDown = {};
   }
 
-  switchChords = (button, buttonId) => {
-    const chordBlockClasses = [".zero", ".one", ".two"];
-    console.log(`button id = ${buttonId}`);
+  switchChords = (button) => {
     this.chordButtonState[button] = !this.chordButtonState[button];
     console.log(this.chordButtonState);
-    for (let i = 0; i < this.chordButtonState.length; i++) {
-      if (this.chordButtonState[i]) {
-        document.querySelector(chordBlockClasses[i]).style.display = "flex";
-        // john suggesting I could instead create and destroy a class here rather than change the style
-      } else {
-        document.querySelector(chordBlockClasses[i]).style.display = "none";
-      }
-    }
+    console.log(button, this.chordButtonState[button]);
+    this.cssManager.switchChords(button, this.chordButtonState[button]);
   };
 
   displayStartButton = () => {

@@ -16,13 +16,13 @@ class EventBinders {
 
   bindChordButtons(handler) {
     this.zerochordbutton.addEventListener("click", () => {
-      handler(0, "#zerochordbutton");
+      handler(0);
     });
     this.onechordbutton.addEventListener("click", () => {
-      handler(1, "#onechordbutton");
+      handler(1);
     });
     this.twochordbutton.addEventListener("click", () => {
-      handler(2, "#twochordbutton");
+      handler(2);
     });
   }
 

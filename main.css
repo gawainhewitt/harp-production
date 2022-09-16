@@ -59,6 +59,10 @@
   color: azure;
 }
 
+.invisible {
+  display: none;
+}
+
 .zero {
   background: brown;
   display: flex;

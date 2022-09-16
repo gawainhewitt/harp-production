@@ -57,3 +57,24 @@ describe("setInitialClass", () => {
     expect(bottombox.className).toEqual("bottombox");
   });
 });
+
+describe("switchChords", () => {
+  const cssManager = new CssManager();
+  const chordBlockClasses = ["zero", "one", "two"];
+  const button = 0;
+
+  it("changes class to invisible when it is visible", () => {
+    cssManager.switchChords(button, false);
+
+    expect(
+      document.querySelector(`#${chordBlockClasses[button]}`).className
+    ).toEqual("invisible");
+  });
+  it("changes class to visible when it is invisible", () => {
+    cssManager.switchChords(button, true);
+
+    expect(
+      document.querySelector(`#${chordBlockClasses[button]}`).className
+    ).toEqual(chordBlockClasses[button]);
+  });
+});

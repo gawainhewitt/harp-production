@@ -23,9 +23,8 @@ const FakeTone = {
   now: () => {}
 };
 
-describe("setup audio", () => {
+describe("startAudio", () => {
   const harpSoundControl = new HarpSoundControl(FakeTone);
-
   it("console logs 'Audio Started' once audio is started", async () => {
     const logSpy = jest.spyOn(console, "log");
 
@@ -33,6 +32,10 @@ describe("setup audio", () => {
 
     expect(logSpy).toHaveBeenCalledWith("Audio Started");
   });
+});
+
+describe("setUpSampler", () => {
+  const harpSoundControl = new HarpSoundControl(FakeTone);
   it("creates sampler", () => {
     harpSoundControl.setUpSampler();
 
@@ -43,7 +46,7 @@ describe("setup audio", () => {
     expect(harpSoundControl.sampler.connect()).toEqual("daschunds rule!"));
 });
 
-describe("making a sound", () => {
+describe("playNote", () => {
   const harpSoundControl = new HarpSoundControl(FakeTone);
 
   it("plays a note", () => {

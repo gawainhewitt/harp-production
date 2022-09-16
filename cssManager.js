@@ -37,6 +37,16 @@ class cssManager {
     const bottombox = document.querySelector("#bottombox");
     bottombox.className = "bottombox";
   }
+  switchChords(chord, visible) {
+    const chordBlockClasses = ["zero", "one", "two"];
+    if (!visible) {
+      document.querySelector(`#${chordBlockClasses[chord]}`).className =
+        "invisible";
+    } else {
+      document.querySelector(`#${chordBlockClasses[chord]}`).className =
+        chordBlockClasses[chord];
+    }
+  }
 }
 
 module.exports = cssManager;

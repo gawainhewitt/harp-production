@@ -18,9 +18,9 @@ describe("UI elements call functions upon interaction", () => {
     onechordbutton.click();
     twochordbutton.click();
 
-    expect(chordMock).toHaveBeenCalledWith(0, "#zerochordbutton");
-    expect(chordMock).toHaveBeenCalledWith(1, "#onechordbutton");
-    expect(chordMock).toHaveBeenCalledWith(2, "#twochordbutton");
+    expect(chordMock).toHaveBeenCalledWith(0);
+    expect(chordMock).toHaveBeenCalledWith(1);
+    expect(chordMock).toHaveBeenCalledWith(2);
   });
   test("start screen calls handler function", () => {
     let startscreen = document.querySelector("#startscreen");
