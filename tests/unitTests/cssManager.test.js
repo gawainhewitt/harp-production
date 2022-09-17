@@ -78,3 +78,12 @@ describe("switchChords", () => {
     ).toEqual(chordBlockClasses[button]);
   });
 });
+
+describe("showStart", () => {
+  const cssManager = new CssManager();
+  it("sets load screen to start text", () => {
+    cssManager.setInitialClass();
+    cssManager.showStart();
+    expect(document.querySelector("#startbutton").innerHTML).toEqual("Start");
+  });
+});

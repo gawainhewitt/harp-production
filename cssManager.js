@@ -47,6 +47,9 @@ class cssManager {
         chordBlockClasses[chord];
     }
   }
+  showStart() {
+    document.querySelector("#startbutton").innerHTML = "Start";
+  }
 }
 
 module.exports = cssManager;
