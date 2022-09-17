@@ -43,13 +43,13 @@ class EventHandlers {
   };
 
   displayStartButton = () => {
-    this.eventBinders.bindStartScreen(this.hideStartScreen);
+    this.eventBinders.bindStartScreen(this.start);
     this.cssManager.showStart();
   };
 
-  hideStartScreen = () => {
+  start = () => {
     this.harpSoundControl.startAudio();
-    this.eventBinders.startscreen.style.display = "none";
+    this.cssManager.hideStart();
   };
 
   stringIsPlucked = (type, whichString) => {

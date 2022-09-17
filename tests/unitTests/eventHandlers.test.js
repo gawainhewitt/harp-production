@@ -66,7 +66,7 @@ describe("displayStartButton", () => {
     eventHandlers.displayStartButton();
 
     expect(mockEventBinders.bindStartScreen).toHaveBeenCalledWith(
-      eventHandlers.hideStartScreen
+      eventHandlers.start
     );
   });
 });
@@ -88,24 +88,8 @@ test("switchcords toggles css display", () => {
   expect(mockCssManager.switchChords).toHaveBeenCalled();
 });
 
-test("hideStartScreen calls harpSoundcontrol.startAudio", () => {
+test("start calls harpSoundcontrol.startAudio", () => {
   const harpSoundControl = new HarpSoundControl();
-  EventBinders.mockImplementationOnce(() => {
-    return {
-      startscreen: document.querySelector("#startscreen"),
-      bindMouseEnter: jest.fn(),
-      bindSelectStart: jest.fn(),
-      bindMouseDown: jest.fn(),
-      bindMouseUp: jest.fn(),
-      bindKeyDown: jest.fn(),
-      bindKeyUp: jest.fn(),
-      bindTouchStart: jest.fn(),
-      bindTouchEnd: jest.fn(),
-      bindTouchMove: jest.fn(),
-      bindTouchCancel: jest.fn(),
-      bindChordButtons: jest.fn()
-    };
-  });
   const eventBinders = new EventBinders();
 
   const cssManager = new CssManager();
@@ -117,28 +101,12 @@ test("hideStartScreen calls harpSoundcontrol.startAudio", () => {
 
   const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
 
-  eventHandlers.hideStartScreen();
+  eventHandlers.start();
 
   expect(mockHarpSoundControlInstance.startAudio).toHaveBeenCalled();
 });
-test("hideStartScreen changes css display to none", () => {
+test("hides start screen", () => {
   const harpSoundControl = new HarpSoundControl();
-  EventBinders.mockImplementationOnce(() => {
-    return {
-      startscreen: document.querySelector("#startscreen"),
-      bindMouseEnter: jest.fn(),
-      bindSelectStart: jest.fn(),
-      bindMouseDown: jest.fn(),
-      bindMouseUp: jest.fn(),
-      bindKeyDown: jest.fn(),
-      bindKeyUp: jest.fn(),
-      bindTouchStart: jest.fn(),
-      bindTouchEnd: jest.fn(),
-      bindTouchMove: jest.fn(),
-      bindTouchCancel: jest.fn(),
-      bindChordButtons: jest.fn()
-    };
-  });
   const eventBinders = new EventBinders();
   const cssManager = new CssManager();
   const eventHandlers = new EventHandlers(
@@ -147,9 +115,11 @@ test("hideStartScreen changes css display to none", () => {
     cssManager
   );
 
-  eventHandlers.hideStartScreen();
+  const mockCssManagerInstance = CssManager.mock.instances[0];
 
-  expect(eventHandlers.eventBinders.startscreen.style.display).toEqual("none");
+  eventHandlers.start();
+
+  expect(mockCssManagerInstance.hideStart).toHaveBeenCalled();
 });
 test("stringIsPlucked calls playNote if type is mouse and mouseDown", () => {
   const harpSoundControl = new HarpSoundControl();
