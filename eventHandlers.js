@@ -24,6 +24,7 @@ class EventHandlers {
     this.eventBinders.bindTouchCancel(this.handleCancel);
     this.eventBinders.bindChordButtons(this.switchChords);
     this.eventBinders.bindOptionsButton(this.enterOptionScreen);
+    this.eventBinders.bindOptionScreen(this.leaveOptionScreen);
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
