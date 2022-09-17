@@ -9,6 +9,7 @@ class EventBinders {
     }
     this.chordContainer = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
+    this.optionsButton = document.querySelector("#optionsbutton");
     this.zerochordbutton = document.querySelector("#zerochordbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
     this.twochordbutton = document.querySelector("#twochordbutton");
@@ -82,6 +83,10 @@ class EventBinders {
 
   bindKeyUp(handler) {
     document.addEventListener("keyup", handler);
+  }
+
+  bindOptionsButton(handler) {
+    this.optionsButton.addEventListener("click", handler);
   }
 }
 

@@ -210,3 +210,18 @@ describe("bindKeyUp", () => {
     expect(keyupMock).toHaveBeenCalled();
   });
 });
+
+describe("bindOptionsButton", () => {
+  test("options buttons call handler function", () => {
+    const eventBinders = new EventBinders();
+
+    let optionsbutton = document.querySelector("#optionsbutton");
+
+    const optionsMock = jest.fn();
+
+    eventBinders.bindOptionsButton(optionsMock);
+    optionsbutton.click();
+
+    expect(optionsMock).toHaveBeenCalled();
+  });
+});
