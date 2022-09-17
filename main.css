@@ -1,3 +1,22 @@
+:root {
+  --black: rgb(0, 0, 0);
+  --orange: rgb(230, 159, 0);
+  --skyblue: rgb(86, 180, 233);
+  --bluishgreen: rgb(0, 158, 115);
+  --yellow: rgb(240, 228, 66);
+  --blue: rgb(0, 114, 178);
+  --vermillion: rgb(213, 94, 0);
+  --reddishpurple: rgb(204, 121, 167);
+
+  --backgroundcolour: var(--skyblue);
+  --stringcolour: var(--orange);
+  --zerochordcolour: var(--yellow);
+  --onechordcolour: var(--reddishpurple);
+  --twochordcolour: var(--bluishgreen);
+
+  --chordnamecolour: var(--black);
+}
+
 * {
   font-family: Helvetica, sans-serif;
   margin: 0;
@@ -8,7 +27,7 @@
 .topbox {
   /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
   height: 10vh;
-  background: cyan;
+  background: var(--backgroundcolour);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -17,9 +36,6 @@
 #inner-top-box {
   display: flex;
   justify-content: space-around;
-}
-
-#player-interface {
 }
 
 #chord-container {
@@ -32,7 +48,7 @@
 
 .bottombox {
   height: 10vh;
-  background: yellow;
+  background: var(--backgroundcolour);
 }
 
 .rightspace {
@@ -56,7 +72,7 @@
   justify-content: space-around;
   font-size: 2em;
   text-align: center;
-  color: azure;
+  color: var(--chordnamecolour);
 }
 
 .invisible {
@@ -64,7 +80,7 @@
 }
 
 .zero {
-  background: brown;
+  background: var(--zerochordcolour);
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -72,7 +88,7 @@
 }
 
 .one {
-  background: grey;
+  background: var(--onechordcolour);
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -80,7 +96,7 @@
 }
 
 .two {
-  background: black;
+  background: var(--twochordcolour);
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -88,7 +104,7 @@
 }
 
 .string {
-  background: goldenrod;
+  background: var(--stringcolour);
   width: 2vw;
 }
 
@@ -97,9 +113,20 @@ p {
   font-size: 2em;
 }
 
+.optionscreen {
+  margin: 0 auto;
+  background: var(--backgroundcolour);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  z-index: 10;
+  position: absolute;
+}
+
 .startscreen {
   margin: 0 auto;
-  background: rgb(148, 207, 148);
+  background: var(--backgroundcolour);
   height: 100vh;
   width: 100vw;
   display: flex;
