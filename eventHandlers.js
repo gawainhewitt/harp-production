@@ -23,7 +23,7 @@ class EventHandlers {
     this.eventBinders.bindTouchMove(this.handleTouchMove);
     this.eventBinders.bindTouchCancel(this.handleCancel);
     this.eventBinders.bindChordButtons(this.switchChords);
-    this.eventBinders.bindOptionsButton(this.enterOptionsScreen);
+    this.eventBinders.bindOptionsButton(this.enterOptionScreen);
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
@@ -35,9 +35,12 @@ class EventHandlers {
     this.cssManager.switchChords(button, this.chordButtonState[button]);
   };
 
-  enterOptionsScreen = () => {
-    console.log("click");
+  enterOptionScreen = () => {
     this.cssManager.optionsVisible();
+  };
+
+  leaveOptionScreen = () => {
+    this.cssManager.optionsInvisible();
   };
 
   displayStartButton = () => {
