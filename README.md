@@ -14,4 +14,4 @@ This instrument is made using vanilla html and javascript and so should be acces
 
 You can play this instrument using a swiped mouse (with button depressed), the qwerty keyboard or touch.
 
-Colours used have been chosen to be unambiguous both to colourblinds and non-colourblinds using the recommendations in this [paper]("https://jfly.uni-koeln.de/color/").
+Colours used have been chosen to be unambiguous both to colourblinds and non-colourblinds using the recommendations in this [paper](https://jfly.uni-koeln.de/color/).
