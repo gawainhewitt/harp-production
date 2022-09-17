@@ -34,6 +34,10 @@ class EventHandlers {
     this.cssManager.switchChords(button, this.chordButtonState[button]);
   };
 
+  enterOptionsScreen() {
+    this.cssManager.optionsVisible();
+  }
+
   displayStartButton = () => {
     this.eventBinders.bindStartScreen(this.start);
     this.cssManager.showStart();

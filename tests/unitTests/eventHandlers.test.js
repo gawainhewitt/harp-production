@@ -69,6 +69,25 @@ describe("switchChords", () => {
   });
 });
 
+describe("enterOptionScreen", () => {
+  test("makes option screen visible", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
+
+    const mockCssManager = CssManager.mock.instances[0];
+
+    eventHandlers.enterOptionsScreen();
+
+    expect(mockCssManager.optionsVisible).toHaveBeenCalled();
+  });
+});
+
 describe("displayStartButton", () => {
   test("calls bindStartScreen", () => {
     const harpSoundControl = new HarpSoundControl();
