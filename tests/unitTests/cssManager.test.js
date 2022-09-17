@@ -94,6 +94,18 @@ describe("optionsVisible", () => {
   });
 });
 
+describe("optionsInvisible", () => {
+  const cssManager = new CssManager();
+
+  it("change to invisible class", () => {
+    cssManager.optionsInvisible();
+
+    expect(document.querySelector("#optionscreen").className).toEqual(
+      "invisible"
+    );
+  });
+});
+
 describe("showStart", () => {
   const cssManager = new CssManager();
   it("sets load screen to start text", () => {
