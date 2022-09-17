@@ -86,4 +86,15 @@ describe("showStart", () => {
     cssManager.showStart();
     expect(document.querySelector("#startbutton").innerHTML).toEqual("Start");
   });
+
+  describe("hideStart", () => {
+    const cssManager = new CssManager();
+    it("hides start screen", () => {
+      cssManager.setInitialClass();
+      cssManager.hideStart();
+      expect(document.querySelector("#startscreen").className).toEqual(
+        "invisible"
+      );
+    });
+  });
 });

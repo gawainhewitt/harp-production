@@ -37,6 +37,7 @@ class cssManager {
     const bottombox = document.querySelector("#bottombox");
     bottombox.className = "bottombox";
   }
+
   switchChords(chord, visible) {
     const chordBlockClasses = ["zero", "one", "two"];
     if (!visible) {
@@ -47,8 +48,13 @@ class cssManager {
         chordBlockClasses[chord];
     }
   }
+
   showStart() {
     document.querySelector("#startbutton").innerHTML = "Start";
+  }
+
+  hideStart() {
+    document.querySelector("#startscreen").className = "invisible";
   }
 }
 
