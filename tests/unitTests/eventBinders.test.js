@@ -212,7 +212,7 @@ describe("bindKeyUp", () => {
 });
 
 describe("bindOptionsButton", () => {
-  test("options buttons call handler function", () => {
+  test("call handler function", () => {
     const eventBinders = new EventBinders();
 
     let optionsbutton = document.querySelector("#optionsbutton");
