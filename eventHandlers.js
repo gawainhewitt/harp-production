@@ -39,8 +39,6 @@ class EventHandlers {
 
   switchChords = (button) => {
     this.chordButtonState[button] = !this.chordButtonState[button];
-    console.log(this.chordButtonState);
-    console.log(button, this.chordButtonState[button]);
     this.cssManager.switchChords(button, this.chordButtonState[button]);
   };
 
@@ -50,7 +48,6 @@ class EventHandlers {
   };
 
   hideStartScreen = () => {
-    console.log("click");
     this.harpSoundControl.startAudio();
     this.eventBinders.startscreen.style.display = "none";
   };
@@ -58,11 +55,9 @@ class EventHandlers {
   stringIsPlucked = (type, whichString) => {
     if (type === "mouse") {
       if (this.mouseDown) {
-        console.log(`type = ${type}`);
         this.harpSoundControl.playNote(whichString);
       }
     } else {
-      console.log(`type = ${type}`);
       this.harpSoundControl.playNote(whichString);
     }
   };
@@ -85,7 +80,6 @@ class EventHandlers {
     if (key in this.keyIsDown === false) {
       this.keyIsDown[key] = true;
       this.#whichKey(key);
-      // console.log("keydown " + key); //debugging
     }
   };
 
