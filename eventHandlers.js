@@ -4,22 +4,13 @@ class EventHandlers {
     this.harpSoundControl = harpSoundControl;
     this.cssManager = cssManager;
 
-    this.cssManager.setInitialClass();
-
     this.ongoingTouches = [];
     this.touchesOnElements = [];
     this.mouseEnterCount = 0;
     this.buttonCount = 0;
     this.mouseDown = false;
-
-    // for (const property in binders) {
-    //   const handler = this[binders[property]]
-    //   this.eventBinder[property] = handler
-    // }
-
-    // [].forEach((el) => {
-
-    // }) From John
+    this.chordButtonState = [true, true, true];
+    this.keyIsDown = {};
 
     this.eventBinders.bindMouseEnter(this.stringIsPlucked);
     this.eventBinders.bindSelectStart(this.disableSelect);
@@ -28,13 +19,14 @@ class EventHandlers {
     this.eventBinders.bindKeyDown(this.handleKeyDown);
     this.eventBinders.bindKeyUp(this.handleKeyUp);
     this.eventBinders.bindTouchStart(this.handleTouchStart);
-    this.eventBinders.bindTouchEnd(this.#handleTouchEnd);
-    this.eventBinders.bindTouchMove(this.#handleTouchMove);
-    this.eventBinders.bindTouchCancel(this.#handleCancel);
-    this.harpSoundControl.setUpSampler(this.displayStartButton);
+    this.eventBinders.bindTouchEnd(this.handleTouchEnd);
+    this.eventBinders.bindTouchMove(this.handleTouchMove);
+    this.eventBinders.bindTouchCancel(this.handleCancel);
     this.eventBinders.bindChordButtons(this.switchChords);
-    this.chordButtonState = [true, true, true];
-    this.keyIsDown = {};
+
+    this.harpSoundControl.setUpSampler(this.displayStartButton);
+
+    this.cssManager.setInitialClass();
   }
 
   switchChords = (button) => {
@@ -112,7 +104,7 @@ class EventHandlers {
     this.#showElement(this.ongoingTouches);
   };
 
-  #handleTouchEnd = (e) => {
+  handleTouchEnd = (e) => {
     e.preventDefault();
     let touches = e.changedTouches;
     // console.log("touch end");
@@ -135,7 +127,7 @@ class EventHandlers {
     }
   };
 
-  #handleTouchMove = (e) => {
+  handleTouchMove = (e) => {
     e.preventDefault();
     console.log("touch move");
     let touches = e.changedTouches;
@@ -153,7 +145,7 @@ class EventHandlers {
     this.#showElement(this.ongoingTouches);
   };
 
-  #handleCancel = (e) => {
+  handleCancel = (e) => {
     e.preventDefault();
     console.log("touchcancel.");
     let touches = e.changedTouches;
