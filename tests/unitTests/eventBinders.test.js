@@ -4,10 +4,10 @@ document.documentElement.innerHTML = html;
 
 const EventBinders = require("../../eventBinders");
 
-describe("UI elements call functions upon interaction", () => {
-  const eventBinders = new EventBinders();
-
+describe("bindChordButtons", () => {
   test("chord buttons call handler function", () => {
+    const eventBinders = new EventBinders();
+
     let zerochordbutton = document.querySelector("#zerochordbutton");
     let onechordbutton = document.querySelector("#onechordbutton");
     let twochordbutton = document.querySelector("#twochordbutton");
@@ -22,7 +22,12 @@ describe("UI elements call functions upon interaction", () => {
     expect(chordMock).toHaveBeenCalledWith(1);
     expect(chordMock).toHaveBeenCalledWith(2);
   });
-  test("start screen calls handler function", () => {
+});
+
+describe("bindStartScreen", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     let startscreen = document.querySelector("#startscreen");
     const startScreenMock = jest.fn();
 
@@ -31,7 +36,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(startScreenMock).toHaveBeenCalled();
   });
+});
+
+describe("bindMouseEnter", () => {
   test("strings call handler function when mouse enters", () => {
+    const eventBinders = new EventBinders();
+
     let stringsArray = [];
     for (let i = 0; i < 3; i++) {
       stringsArray[i] = [];
@@ -59,7 +69,12 @@ describe("UI elements call functions upon interaction", () => {
       }
     }
   });
-  test("selectstart event calls handler function", () => {
+});
+
+describe("bindSelectStart", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const selectstartMock = jest.fn();
     eventBinders.bindSelectStart(selectstartMock);
 
@@ -67,7 +82,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(selectstartMock).toHaveBeenCalled();
   });
-  test("mousedown events call handler function", () => {
+});
+
+describe("bindMouseDown", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const mousedownMock = jest.fn();
     eventBinders.bindMouseDown(mousedownMock);
 
@@ -75,7 +95,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(mousedownMock).toHaveBeenCalled();
   });
-  test("mouseup events call handler function", () => {
+});
+
+describe("bindMouseUp", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const mouseupMock = jest.fn();
     eventBinders.bindMouseUp(mouseupMock);
 
@@ -83,7 +108,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(mouseupMock).toHaveBeenCalled();
   });
-  test("touchstart event calls handler function", () => {
+});
+
+describe("bindTouchStart", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const touchstartMock = jest.fn();
     eventBinders.bindTouchStart(touchstartMock);
 
@@ -93,7 +123,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchstartMock).toHaveBeenCalled();
   });
-  test("touchend calls handler function", () => {
+});
+
+describe("bindTouchEnd", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const touchendMock = jest.fn();
     eventBinders.bindTouchEnd(touchendMock);
 
@@ -103,7 +138,27 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchendMock).toHaveBeenCalled();
   });
-  test("touchmove calls handler function", () => {
+});
+
+describe("bindTouchend", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
+    const touchendMock = jest.fn();
+    eventBinders.bindTouchEnd(touchendMock);
+
+    document
+      .querySelector("#chord-container")
+      .dispatchEvent(new TouchEvent("touchend"));
+
+    expect(touchendMock).toHaveBeenCalled();
+  });
+});
+
+describe("bindTouchMove", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const touchmoveMock = jest.fn();
     eventBinders.bindTouchMove(touchmoveMock);
 
@@ -113,7 +168,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchmoveMock).toHaveBeenCalled();
   });
-  test("touchcancel calls handler function", () => {
+});
+
+describe("bindTouchCancel", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const touchcancelMock = jest.fn();
     eventBinders.bindTouchCancel(touchcancelMock);
 
@@ -123,7 +183,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(touchcancelMock).toHaveBeenCalled();
   });
-  test("keydown calls handler function", () => {
+});
+
+describe("bindKeyDown", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
     const keydownMock = jest.fn();
     eventBinders.bindKeyDown(keydownMock);
 
@@ -131,7 +196,12 @@ describe("UI elements call functions upon interaction", () => {
 
     expect(keydownMock).toHaveBeenCalled();
   });
-  test("keyup calls handler function", () => {
+});
+
+describe("bindKeyUp", () => {
+  const eventBinders = new EventBinders();
+
+  test("calls handler function", () => {
     const keyupMock = jest.fn();
     eventBinders.bindKeyUp(keyupMock);
 
