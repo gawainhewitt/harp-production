@@ -9,6 +9,7 @@ class EventBinders {
     }
     this.chordContainer = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
+    this.optionscreen = document.querySelector("#optionscreen");
     this.optionsButton = document.querySelector("#optionsbutton");
     this.zerochordbutton = document.querySelector("#zerochordbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
@@ -31,6 +32,10 @@ class EventBinders {
     this.startscreen.addEventListener("click", () => {
       handler();
     });
+  }
+
+  bindOptionScreen(handler) {
+    this.optionscreen.addEventListener("click", handler);
   }
 
   bindMouseEnter(handler) {

@@ -38,6 +38,20 @@ describe("bindStartScreen", () => {
   });
 });
 
+describe("bindOptionScreen", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
+    let optionscreen = document.querySelector("#optionscreen");
+    const optionScreenMock = jest.fn();
+
+    eventBinders.bindOptionScreen(optionScreenMock);
+    optionscreen.click();
+
+    expect(optionScreenMock).toHaveBeenCalled();
+  });
+});
+
 describe("bindMouseEnter", () => {
   test("strings call handler function when mouse enters", () => {
     const eventBinders = new EventBinders();
