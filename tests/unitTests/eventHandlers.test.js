@@ -50,6 +50,25 @@ describe("constructor", () => {
   });
 });
 
+describe("switchChords", () => {
+  test("switchcords toggles css display", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
+
+    const mockCssManager = CssManager.mock.instances[0];
+
+    eventHandlers.switchChords(0);
+
+    expect(mockCssManager.switchChords).toHaveBeenCalled();
+  });
+});
+
 describe("displayStartButton", () => {
   test("calls bindStartScreen", () => {
     const harpSoundControl = new HarpSoundControl();
@@ -71,168 +90,162 @@ describe("displayStartButton", () => {
   });
 });
 
-test("switchcords toggles css display", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
+describe("start", () => {
+  test("calls harpSoundcontrol.startAudio", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
 
-  const mockCssManager = CssManager.mock.instances[0];
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
 
-  eventHandlers.switchChords(0);
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
 
-  expect(mockCssManager.switchChords).toHaveBeenCalled();
+    eventHandlers.start();
+
+    expect(mockHarpSoundControlInstance.startAudio).toHaveBeenCalled();
+  });
+  test("hides start screen", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
+
+    const mockCssManagerInstance = CssManager.mock.instances[0];
+
+    eventHandlers.start();
+
+    expect(mockCssManagerInstance.hideStart).toHaveBeenCalled();
+  });
 });
 
-test("start calls harpSoundcontrol.startAudio", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
+describe("stringIsPlucked", () => {
+  test("calls playNote if type is mouse and mouseDown", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
 
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
 
-  const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+    const myMock = {
+      preventDefault: jest.fn()
+    };
 
-  eventHandlers.start();
+    eventHandlers.registerMouseDown(myMock);
+    eventHandlers.stringIsPlucked("mouse", "stringMock");
 
-  expect(mockHarpSoundControlInstance.startAudio).toHaveBeenCalled();
+    expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
+      "stringMock"
+    );
+
+    eventHandlers.registerMouseUp();
+
+    eventHandlers.stringIsPlucked("mouse", "stringMock");
+
+    expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledTimes(1);
+  });
+  test("calls playNote if type is not mouse", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
+
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+
+    eventHandlers.stringIsPlucked("touch", "stringMock2");
+
+    expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
+      "stringMock2"
+    );
+  });
 });
-test("hides start screen", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
 
-  const mockCssManagerInstance = CssManager.mock.instances[0];
+describe("disableSelect", () => {
+  test("calls parameter.preventDefault", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
 
-  eventHandlers.start();
+    const myMock = {
+      preventDefault: jest.fn()
+    };
 
-  expect(mockCssManagerInstance.hideStart).toHaveBeenCalled();
+    eventHandlers.disableSelect(myMock);
+
+    expect(myMock.preventDefault).toHaveBeenCalled();
+  });
 });
-test("stringIsPlucked calls playNote if type is mouse and mouseDown", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
 
-  const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+describe("handleKeyDown and handleKeyUp", () => {
+  it("plays a note when a key is presses", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
 
-  const myMock = {
-    preventDefault: jest.fn()
-  };
+    const myMock = {
+      code: "KeyA"
+    };
 
-  eventHandlers.registerMouseDown(myMock);
-  eventHandlers.stringIsPlucked("mouse", "stringMock");
+    const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
 
-  expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
-    "stringMock"
-  );
+    eventHandlers.handleKeyDown(myMock);
 
-  eventHandlers.registerMouseUp();
+    expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 0 });
+  });
+  it("note does not repeat when held down", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const cssManager = new CssManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      cssManager
+    );
 
-  eventHandlers.stringIsPlucked("mouse", "stringMock");
+    const myMock = {
+      code: "KeyD"
+    };
 
-  expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledTimes(1);
-});
-test("stringIsPlucked calls playNote if type is not mouse", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
+    const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
 
-  const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+    eventHandlers.handleKeyDown(myMock);
+    eventHandlers.handleKeyDown(myMock);
 
-  eventHandlers.stringIsPlucked("touch", "stringMock2");
+    expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 2 });
+    expect(spy).toHaveBeenCalledTimes(1);
 
-  expect(mockHarpSoundControlInstance.playNote).toHaveBeenCalledWith(
-    "stringMock2"
-  );
-});
-test("disableSelect calls parameter.preventDefault", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
+    eventHandlers.handleKeyUp(myMock);
 
-  const myMock = {
-    preventDefault: jest.fn()
-  };
+    eventHandlers.handleKeyDown(myMock);
 
-  eventHandlers.disableSelect(myMock);
-
-  expect(myMock.preventDefault).toHaveBeenCalled();
-});
-it("plays a note when a key is presses", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
-
-  const myMock = {
-    code: "KeyA"
-  };
-
-  const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
-
-  eventHandlers.handleKeyDown(myMock);
-
-  expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 0 });
-});
-it("note does not repeat when held down", () => {
-  const harpSoundControl = new HarpSoundControl();
-  const eventBinders = new EventBinders();
-  const cssManager = new CssManager();
-  const eventHandlers = new EventHandlers(
-    eventBinders,
-    harpSoundControl,
-    cssManager
-  );
-
-  const myMock = {
-    code: "KeyD"
-  };
-
-  const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
-
-  eventHandlers.handleKeyDown(myMock);
-  eventHandlers.handleKeyDown(myMock);
-
-  expect(spy).toHaveBeenCalledWith("key", { chord: 1, string: 2 });
-  expect(spy).toHaveBeenCalledTimes(1);
-
-  eventHandlers.handleKeyUp(myMock);
-
-  eventHandlers.handleKeyDown(myMock);
-
-  expect(spy).toHaveBeenCalledTimes(2);
+    expect(spy).toHaveBeenCalledTimes(2);
+  });
 });
 
 // it("plays a note when screen touched", () => {
