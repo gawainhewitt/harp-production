@@ -82,6 +82,18 @@ describe("switchChords", () => {
   });
 });
 
+describe("optionsVisible", () => {
+  const cssManager = new CssManager();
+
+  it("change to visible class", () => {
+    cssManager.optionsVisible();
+
+    expect(document.querySelector("#optionscreen").className).toEqual(
+      "optionscreen"
+    );
+  });
+});
+
 describe("showStart", () => {
   const cssManager = new CssManager();
   it("sets load screen to start text", () => {

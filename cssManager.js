@@ -51,6 +51,10 @@ class cssManager {
     }
   }
 
+  optionsVisible() {
+    document.querySelector("#optionscreen").className = "optionscreen";
+  }
+
   showStart() {
     document.querySelector("#startbutton").innerHTML = "Start";
   }
