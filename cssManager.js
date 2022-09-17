@@ -36,6 +36,8 @@ class cssManager {
     }
     const bottombox = document.querySelector("#bottombox");
     bottombox.className = "bottombox";
+    const optionscreen = document.querySelector("#optionscreen");
+    optionscreen.className = "invisible";
   }
 
   switchChords(chord, visible) {

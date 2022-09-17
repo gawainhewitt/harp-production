@@ -55,6 +55,9 @@ describe("setInitialClass", () => {
 
     const bottombox = document.querySelector("#bottombox");
     expect(bottombox.className).toEqual("bottombox");
+
+    const optionscreen = document.querySelector("#optionscreen");
+    expect(optionscreen.className).toEqual("invisible");
   });
 });
 
