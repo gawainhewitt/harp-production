@@ -85,7 +85,7 @@ class EventHandlers {
     if (key in this.keyIsDown === false) {
       this.keyIsDown[key] = true;
       this.#whichKey(key);
-      console.log("keydown " + key); //debugging
+      // console.log("keydown " + key); //debugging
     }
   };
 
