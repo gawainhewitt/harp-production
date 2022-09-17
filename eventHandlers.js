@@ -46,7 +46,7 @@ class EventHandlers {
 
   displayStartButton = () => {
     this.eventBinders.bindStartScreen(this.hideStartScreen);
-    document.querySelector("#startbutton").innerHTML = "Start";
+    this.cssManager.showStart();
   };
 
   hideStartScreen = () => {
