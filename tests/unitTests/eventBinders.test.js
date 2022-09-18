@@ -38,17 +38,17 @@ describe("bindStartScreen", () => {
   });
 });
 
-describe("bindOptionScreen", () => {
+describe("bindBackButton", () => {
   test("calls handler function", () => {
     const eventBinders = new EventBinders();
 
-    let optionscreen = document.querySelector("#optionscreen");
-    const optionScreenMock = jest.fn();
+    let backButton = document.querySelector("#backbutton");
+    const backButtonMock = jest.fn();
 
-    eventBinders.bindOptionScreen(optionScreenMock);
-    optionscreen.click();
+    eventBinders.bindBackButton(backButtonMock);
+    backButton.click();
 
-    expect(optionScreenMock).toHaveBeenCalled();
+    expect(backButtonMock).toHaveBeenCalled();
   });
 });
 
