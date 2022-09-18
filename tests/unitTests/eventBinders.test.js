@@ -18,7 +18,6 @@ describe("bindChordButtons", () => {
     onechordbutton.click();
     twochordbutton.click();
 
-    expect(chordMock).toHaveBeenCalledWith(0);
     expect(chordMock).toHaveBeenCalledWith(1);
     expect(chordMock).toHaveBeenCalledWith(2);
   });

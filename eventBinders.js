@@ -9,19 +9,13 @@ class EventBinders {
     }
     this.chordContainer = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
-    // this.optionscreen = document.querySelector("#optionscreen");
     this.backbutton = document.querySelector("#backbutton");
-
     this.optionsButton = document.querySelector("#optionsbutton");
-    this.zerochordbutton = document.querySelector("#zerochordbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
     this.twochordbutton = document.querySelector("#twochordbutton");
   }
 
   bindChordButtons(handler) {
-    this.zerochordbutton.addEventListener("click", () => {
-      handler(0);
-    });
     this.onechordbutton.addEventListener("click", () => {
       handler(1);
     });
@@ -35,10 +29,6 @@ class EventBinders {
       handler();
     });
   }
-
-  // bindOptionScreen(handler) {
-  //   this.optionscreen.addEventListener("click", handler);
-  // }
 
   bindBackButton(handler) {
     this.backbutton.addEventListener("click", handler);
