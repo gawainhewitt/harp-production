@@ -14,7 +14,6 @@ describe("bindChordButtons", () => {
     const chordMock = jest.fn();
 
     eventBinders.bindChordButtons(chordMock);
-    zerochordbutton.click();
     onechordbutton.click();
     twochordbutton.click();
 
