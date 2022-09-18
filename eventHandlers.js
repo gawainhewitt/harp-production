@@ -9,7 +9,6 @@ class EventHandlers {
     this.mouseEnterCount = 0;
     this.buttonCount = 0;
     this.mouseDown = false;
-    this.chordButtonState = [true, true, true];
     this.keyIsDown = {};
 
     this.eventBinders.bindMouseEnter(this.stringIsPlucked);
@@ -29,11 +28,22 @@ class EventHandlers {
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
     this.cssManager.setInitialClass();
+
+    this.setChordButtons();
   }
 
-  switchChords = (button) => {
-    this.chordButtonState[button] = !this.chordButtonState[button];
-    this.cssManager.switchChords(button, this.chordButtonState[button]);
+  setChordButtons() {
+    let onechordbutton = document.querySelector("#onechordbutton");
+    let twochordbutton = document.querySelector("#twochordbutton");
+
+    onechordbutton.click();
+    twochordbutton.click();
+  }
+
+  switchChords = (button, element) => {
+    const state = element.checked;
+    console.log(state);
+    this.cssManager.switchChords(button, state);
   };
 
   enterOptionScreen = () => {

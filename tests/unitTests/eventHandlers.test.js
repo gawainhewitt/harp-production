@@ -63,7 +63,7 @@ describe("switchChords", () => {
 
     const mockCssManager = CssManager.mock.instances[0];
 
-    eventHandlers.switchChords(0);
+    eventHandlers.switchChords(1, document.querySelector("#onechordbutton"));
 
     expect(mockCssManager.switchChords).toHaveBeenCalled();
   });
