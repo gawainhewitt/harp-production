@@ -44,7 +44,7 @@
   /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
   height: 80vh;
   display: grid;
-  grid-template-columns: 15% 80% 5%;
+  grid-template-columns: 3fr 16fr 1fr;
   /* background: var(--backgroundcolour); */
 }
 
