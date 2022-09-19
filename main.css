@@ -72,7 +72,7 @@
   flex: 2;
   flex-direction: column;
   justify-content: space-around;
-  font-size: 2em;
+  font-size: 300%;
   text-align: center;
   color: var(--chordnamecolour);
 }
