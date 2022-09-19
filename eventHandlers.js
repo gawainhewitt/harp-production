@@ -29,10 +29,10 @@ class EventHandlers {
 
     this.cssManager.setInitialClass();
 
-    this.setChordButtons();
+    this.initialiseChordButtons();
   }
 
-  setChordButtons() {
+  initialiseChordButtons() {
     let onechordbutton = document.querySelector("#onechordbutton");
     let twochordbutton = document.querySelector("#twochordbutton");
 
