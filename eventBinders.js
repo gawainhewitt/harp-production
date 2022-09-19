@@ -13,6 +13,7 @@ class EventBinders {
     this.optionsButton = document.querySelector("#optionsbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
     this.twochordbutton = document.querySelector("#twochordbutton");
+    this.zeroChordDropdown = document.querySelector("#select0key");
   }
 
   bindChordButtons(handler) {
@@ -88,6 +89,18 @@ class EventBinders {
 
   bindOptionsButton(handler) {
     this.optionsButton.addEventListener("click", handler);
+  }
+
+  bindKeyDropDown(handler) {
+    this.zeroChordDropdown.addEventListener("change", () => {
+      handler(e, 0);
+    });
+    this.oneChordDropdown.addEventListener("change", () => {
+      handler(e, 1);
+    });
+    this.zeroChordDropdown.addEventListener("change", () => {
+      handler(e, 2);
+    });
   }
 }
 

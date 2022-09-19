@@ -238,3 +238,18 @@ describe("bindOptionsButton", () => {
     expect(optionsMock).toHaveBeenCalled();
   });
 });
+
+// describe("bindKeyDropDown", () => {
+//   const eventBinders = new EventBinders();
+
+//   let dropDown = document.querySelector("#select0key");
+
+//   const keyMock = jest.fn();
+
+//   eventBinders.bindKeyDropDown(keyMock);
+//   // dropDown.selectedIndex = 2;
+
+//   expect(keyMock).toHaveBeenCalled();
+// });
+
+// don't think I can test as can't simulate selecting the item in menu
