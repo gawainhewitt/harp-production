@@ -1,6 +1,16 @@
 class cssManager {
   setInitialClass() {
-    const elementNames = ["startscreen", "topbox", "zero", "one", "two"];
+    const elementNames = [
+      "startscreen",
+      "topbox",
+      "zero",
+      "one",
+      "two",
+      "bottombox",
+      "optionstop",
+      "optionsmiddle",
+      "optionsbottom"
+    ];
     const chordNames = ["chord0name", "chord1name", "chord2name"];
     const stringContainers = [
       "stringscontainer0",
@@ -34,8 +44,6 @@ class cssManager {
       const element = document.querySelector(`#${name}`);
       element.className = "rightspace";
     }
-    const bottombox = document.querySelector("#bottombox");
-    bottombox.className = "bottombox";
     this.optionsInvisible();
   }
 
