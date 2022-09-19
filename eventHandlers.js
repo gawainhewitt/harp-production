@@ -119,9 +119,11 @@ class EventHandlers {
   };
 
   keyMenu = (e) => {
-    // console.log(e);
-    console.log(e.srcElement.id);
+    console.log(e);
+    console.log(e.srcElement.id[6]);
     console.log(e.srcElement.value);
+    this.domManager.changeChordName(e.srcElement.id[6], e.srcElement.value);
+    this.harpSoundControl.chooseRoot(e.srcElement.id[6], e.srcElement.value);
   };
 
   handleTouchStart = (e) => {

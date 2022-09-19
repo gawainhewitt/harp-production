@@ -298,9 +298,15 @@ describe("keyMenu", () => {
       domManager
     );
 
-    eventHandlers.keyMenu();
+    const myMock = {
+      srcElement: { id: "goats", value: "much" }
+    };
 
-    expect(true).toEqual(true);
+    const mockDomManagerInstance = DomManager.mock.instances[0];
+
+    eventHandlers.keyMenu(myMock);
+
+    expect(mockDomManagerInstance.changeChordName).toHaveBeenCalled();
   });
 });
 
