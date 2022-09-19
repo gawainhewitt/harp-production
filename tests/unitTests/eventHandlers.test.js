@@ -165,7 +165,7 @@ describe("start", () => {
 });
 
 describe("stringIsPlucked", () => {
-  test("calls playNote if type is mouse and mouseDown", () => {
+  test("calls playNote if type is mouse && mouseDown && in main screen", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
     const cssManager = new CssManager();
@@ -174,7 +174,8 @@ describe("stringIsPlucked", () => {
       harpSoundControl,
       cssManager
     );
-
+    const optionscreen = document.querySelector("#optionscreen");
+    optionscreen.className = "invisible";
     const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
 
     const myMock = {

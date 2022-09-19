@@ -79,8 +79,11 @@ class EventHandlers {
   };
 
   registerMouseDown = (e) => {
-    this.disableSelect(e);
-    this.mouseDown = true;
+    const optionscreen = document.querySelector("#optionscreen");
+    if (optionscreen.className === "invisible") {
+      this.disableSelect(e);
+      this.mouseDown = true;
+    }
   };
 
   registerMouseUp = () => {
