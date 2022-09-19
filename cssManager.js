@@ -75,6 +75,10 @@ class cssManager {
   hideStart() {
     document.querySelector("#startscreen").className = "invisible";
   }
+
+  changeChordName(whichChord, name) {
+    document.querySelector(`#chord${whichChord}name`).innerHTML = name;
+  }
 }
 
 module.exports = cssManager;

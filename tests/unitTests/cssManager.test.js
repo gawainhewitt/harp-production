@@ -133,3 +133,17 @@ describe("showStart", () => {
     });
   });
 });
+
+describe("changeChordName", () => {
+  const cssManager = new CssManager();
+  it("changes chord name", () => {
+    const whichChord = 0;
+    const name = "D#";
+    cssManager.setInitialClass();
+    cssManager.changeChordName(whichChord, name);
+
+    expect(document.querySelector(`#chord${whichChord}name`).innerHTML).toEqual(
+      name
+    );
+  });
+});
