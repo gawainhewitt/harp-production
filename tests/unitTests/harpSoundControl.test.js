@@ -56,3 +56,25 @@ describe("playNote", () => {
     expect(harpSoundControl.sampler.theNote).toEqual("G4");
   });
 });
+
+describe("chooseRoot", () => {
+  const harpSoundControl = new HarpSoundControl(FakeTone);
+
+  it("sets root note of chord", () => {
+    const topChord = 0;
+    const rootNoteF = "F";
+    const fChord = ["F3", "A3", "C4", "F4", "A4", "C5", "F5", "A5", "C6", "F6"];
+
+    harpSoundControl.chooseRoot(topChord, rootNoteF);
+
+    expect(harpSoundControl.chordArray[topChord]).toEqual(fChord);
+
+    const middleChord = 1;
+    const rootNoteC = "C";
+    const cChord = ["C3", "E3", "G3", "C4", "E4", "G4", "C5", "E5", "G5", "C6"];
+
+    harpSoundControl.chooseRoot(middleChord, rootNoteC);
+
+    expect(harpSoundControl.chordArray[middleChord]).toEqual(cChord);
+  });
+});
