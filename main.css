@@ -173,6 +173,12 @@ p {
   font-size: 4em;
 }
 
+.backbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* button styling */
 
 .button-49-options,

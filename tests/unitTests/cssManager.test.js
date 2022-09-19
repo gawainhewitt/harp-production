@@ -17,7 +17,8 @@ describe("setInitialClass", () => {
       "bottombox",
       "optionstop",
       "optionsmiddle",
-      "optionsbottom"
+      "optionsbottom",
+      "backbutton"
     ];
 
     const chordNames = ["chord0name", "chord1name", "chord2name"];
