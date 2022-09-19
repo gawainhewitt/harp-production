@@ -43,9 +43,9 @@
 #chord-container {
   /* we are using vh for a fixed knowable height relative to the window. Therefore :root, html and body % settings are irrelevant */
   height: 80vh;
-  display: flex;
-  flex-direction: column;
-  background: white;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  /* background: var(--backgroundcolour); */
 }
 
 .bottombox {
@@ -67,6 +67,21 @@
   justify-content: space-around;
 }
 
+#stringscontainer0,
+#chordzerorightspace {
+  background-color: var(--zerochordcolour);
+}
+
+#stringscontainer1,
+#chordonerightspace {
+  background-color: var(--onechordcolour);
+}
+
+#stringscontainer2,
+#chordtworightspace {
+  background-color: var(--twochordcolour);
+}
+
 .chordname {
   display: flex;
   flex: 2;
@@ -75,7 +90,6 @@
   font-size: 300%;
   text-align: center;
   color: var(--chordnamecolour);
-  white-space: nowrap;
 }
 
 .invisible {
