@@ -5,7 +5,7 @@ document.documentElement.innerHTML = html;
 const EventBinders = require("../../eventBinders");
 const EventHandlers = require("../../eventHandlers");
 const HarpSoundControl = require("../../harpSoundControl");
-const CssManager = require("../../cssManager");
+const DomManager = require("../../domManager");
 
 const FakeTone = {
   start: async function () {
@@ -33,11 +33,11 @@ const FakeTone = {
 describe("setup", () => {
   const eventBinders = new EventBinders();
   const harpSoundControl = new HarpSoundControl(FakeTone);
-  const cssManager = new CssManager();
+  const domManager = new DomManager();
   const eventHandlers = new EventHandlers(
     eventBinders,
     harpSoundControl,
-    cssManager
+    domManager
   );
 
   it("creates instance of class EventBinders", () =>

@@ -1,4 +1,4 @@
-class cssManager {
+class DomManager {
   setInitialClass() {
     const elementNames = [
       "startscreen",
@@ -81,4 +81,4 @@ class cssManager {
   }
 }
 
-module.exports = cssManager;
+module.exports = DomManager;

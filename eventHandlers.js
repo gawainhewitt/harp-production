@@ -1,8 +1,8 @@
 class EventHandlers {
-  constructor(eventBinders, harpSoundControl, cssManager) {
+  constructor(eventBinders, harpSoundControl, domManager) {
     this.eventBinders = eventBinders;
     this.harpSoundControl = harpSoundControl;
-    this.cssManager = cssManager;
+    this.domManager = domManager;
 
     this.ongoingTouches = [];
     this.touchesOnElements = [];
@@ -27,7 +27,7 @@ class EventHandlers {
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
-    this.cssManager.setInitialClass();
+    this.domManager.setInitialClass();
 
     this.initialiseChordButtons();
   }
@@ -43,25 +43,25 @@ class EventHandlers {
   switchChords = (button, element) => {
     const state = element.checked;
     console.log(state);
-    this.cssManager.switchChords(button, state);
+    this.domManager.switchChords(button, state);
   };
 
   enterOptionScreen = () => {
-    this.cssManager.optionsVisible();
+    this.domManager.optionsVisible();
   };
 
   leaveOptionScreen = () => {
-    this.cssManager.optionsInvisible();
+    this.domManager.optionsInvisible();
   };
 
   displayStartButton = () => {
     this.eventBinders.bindStartScreen(this.start);
-    this.cssManager.showStart();
+    this.domManager.showStart();
   };
 
   start = () => {
     this.harpSoundControl.startAudio();
-    this.cssManager.hideStart();
+    this.domManager.hideStart();
   };
 
   stringIsPlucked = (type, whichString) => {

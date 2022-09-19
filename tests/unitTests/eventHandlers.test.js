@@ -5,27 +5,27 @@ document.documentElement.innerHTML = html;
 const EventBinders = require("../../eventBinders");
 const EventHandlers = require("../../eventHandlers");
 const HarpSoundControl = require("../../harpSoundControl");
-const CssManager = require("../../cssManager");
+const DomManager = require("../../domManager");
 
 jest.mock("../../harpSoundControl");
 jest.mock("../../eventBinders");
-jest.mock("../../cssManager");
+jest.mock("../../domManager");
 
 beforeEach(() => {
   EventBinders.mockClear();
   HarpSoundControl.mockClear();
-  CssManager.mockClear();
+  DomManager.mockClear();
 });
 
 describe("constructor", () => {
   test("sets up class instances correctly", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     expect(eventHandlers.harpSoundControl).toBeInstanceOf(HarpSoundControl);
@@ -35,11 +35,11 @@ describe("constructor", () => {
   it("calls setUpSampler", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
@@ -54,18 +54,18 @@ describe("switchChords", () => {
   test("switchcords toggles css display", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
-    const mockCssManager = CssManager.mock.instances[0];
+    const mockdomManager = DomManager.mock.instances[0];
 
     eventHandlers.switchChords(1, document.querySelector("#onechordbutton"));
 
-    expect(mockCssManager.switchChords).toHaveBeenCalled();
+    expect(mockdomManager.switchChords).toHaveBeenCalled();
   });
 });
 
@@ -73,18 +73,18 @@ describe("enterOptionScreen", () => {
   test("makes option screen visible", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
-    const mockCssManager = CssManager.mock.instances[0];
+    const mockdomManager = DomManager.mock.instances[0];
 
     eventHandlers.enterOptionScreen();
 
-    expect(mockCssManager.optionsVisible).toHaveBeenCalled();
+    expect(mockdomManager.optionsVisible).toHaveBeenCalled();
   });
 });
 
@@ -92,18 +92,18 @@ describe("leaveOptionScreen", () => {
   test("makes option screen visible", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
-    const mockCssManager = CssManager.mock.instances[0];
+    const mockdomManager = DomManager.mock.instances[0];
 
     eventHandlers.leaveOptionScreen();
 
-    expect(mockCssManager.optionsInvisible).toHaveBeenCalled();
+    expect(mockdomManager.optionsInvisible).toHaveBeenCalled();
   });
 });
 
@@ -111,11 +111,11 @@ describe("displayStartButton", () => {
   test("calls bindStartScreen", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const mockEventBinders = EventBinders.mock.instances[0];
@@ -133,11 +133,11 @@ describe("start", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
 
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
@@ -149,18 +149,18 @@ describe("start", () => {
   test("hides start screen", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
-    const mockCssManagerInstance = CssManager.mock.instances[0];
+    const mockdomManagerInstance = DomManager.mock.instances[0];
 
     eventHandlers.start();
 
-    expect(mockCssManagerInstance.hideStart).toHaveBeenCalled();
+    expect(mockdomManagerInstance.hideStart).toHaveBeenCalled();
   });
 });
 
@@ -168,11 +168,11 @@ describe("stringIsPlucked", () => {
   test("calls playNote if type is mouse && mouseDown && in main screen", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
     const optionscreen = document.querySelector("#optionscreen");
     optionscreen.className = "invisible";
@@ -198,11 +198,11 @@ describe("stringIsPlucked", () => {
   test("calls playNote if type is not mouse", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
@@ -219,11 +219,11 @@ describe("disableSelect", () => {
   test("calls parameter.preventDefault", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const myMock = {
@@ -240,11 +240,11 @@ describe("handleKeyDown and handleKeyUp", () => {
   it("plays a note when a key is presses", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const myMock = {
@@ -260,11 +260,11 @@ describe("handleKeyDown and handleKeyUp", () => {
   it("note does not repeat when held down", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     const eventHandlers = new EventHandlers(
       eventBinders,
       harpSoundControl,
-      cssManager
+      domManager
     );
 
     const myMock = {
@@ -300,11 +300,11 @@ describe("handleKeyDown and handleKeyUp", () => {
 
 //   const harpSoundControl = new HarpSoundControl();
 //   const eventBinders = new EventBinders();
-// const cssManager = new CssManager(); //
+// const domManager = new DomManager(); //
 // const eventHandlers = new EventHandlers(
 //   eventBinders,
 //   harpSoundControl,
-//   cssManager
+//   domManager
 // );
 
 //   // const stringPosition = document

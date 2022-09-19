@@ -2,11 +2,11 @@ const fs = require("fs");
 const html = fs.readFileSync("./index.html");
 document.documentElement.innerHTML = html;
 
-const CssManager = require("../../cssManager");
+const DomManager = require("../../domManager");
 
 describe("setInitialClass", () => {
   it("initialises elements with correct class", () => {
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
 
     const elementNames = [
       "startscreen",
@@ -35,7 +35,7 @@ describe("setInitialClass", () => {
       "chordtworightspace"
     ];
 
-    cssManager.setInitialClass();
+    domManager.setInitialClass();
 
     for (const name of elementNames) {
       const element = document.querySelector(`#${name}`);
@@ -70,19 +70,19 @@ describe("setInitialClass", () => {
 });
 
 describe("switchChords", () => {
-  const cssManager = new CssManager();
+  const domManager = new DomManager();
   const chordBlockClasses = ["zero", "one", "two"];
   const button = 0;
 
   it("changes class to invisible when it is visible", () => {
-    cssManager.switchChords(button, false);
+    domManager.switchChords(button, false);
 
     expect(
       document.querySelector(`#${chordBlockClasses[button]}`).className
     ).toEqual("invisible");
   });
   it("changes class to visible when it is invisible", () => {
-    cssManager.switchChords(button, true);
+    domManager.switchChords(button, true);
 
     expect(
       document.querySelector(`#${chordBlockClasses[button]}`).className
@@ -91,10 +91,10 @@ describe("switchChords", () => {
 });
 
 describe("optionsVisible", () => {
-  const cssManager = new CssManager();
+  const domManager = new DomManager();
 
   it("change to visible class", () => {
-    cssManager.optionsVisible();
+    domManager.optionsVisible();
 
     expect(document.querySelector("#optionscreen").className).toEqual(
       "optionscreen"
@@ -103,10 +103,10 @@ describe("optionsVisible", () => {
 });
 
 describe("optionsInvisible", () => {
-  const cssManager = new CssManager();
+  const domManager = new DomManager();
 
   it("change to invisible class", () => {
-    cssManager.optionsInvisible();
+    domManager.optionsInvisible();
 
     expect(document.querySelector("#optionscreen").className).toEqual(
       "invisible"
@@ -115,18 +115,18 @@ describe("optionsInvisible", () => {
 });
 
 describe("showStart", () => {
-  const cssManager = new CssManager();
+  const domManager = new DomManager();
   it("sets load screen to start text", () => {
-    cssManager.setInitialClass();
-    cssManager.showStart();
+    domManager.setInitialClass();
+    domManager.showStart();
     expect(document.querySelector("#startbutton").innerHTML).toEqual("Start");
   });
 
   describe("hideStart", () => {
-    const cssManager = new CssManager();
+    const domManager = new DomManager();
     it("hides start screen", () => {
-      cssManager.setInitialClass();
-      cssManager.hideStart();
+      domManager.setInitialClass();
+      domManager.hideStart();
       expect(document.querySelector("#startscreen").className).toEqual(
         "invisible"
       );
@@ -135,12 +135,12 @@ describe("showStart", () => {
 });
 
 describe("changeChordName", () => {
-  const cssManager = new CssManager();
+  const domManager = new DomManager();
   it("changes displayed chord name", () => {
     const whichChord = 0;
     const name = "D#";
-    cssManager.setInitialClass();
-    cssManager.changeChordName(whichChord, name);
+    domManager.setInitialClass();
+    domManager.changeChordName(whichChord, name);
 
     expect(document.querySelector(`#chord${whichChord}name`).innerHTML).toEqual(
       name

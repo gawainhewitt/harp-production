@@ -3,13 +3,13 @@ const Tone = require("./node_modules/tone");
 const EventBinders = require("./eventBinders");
 const EventHandlers = require("./eventHandlers");
 const HarpSoundControl = require("./harpSoundControl");
-const CssManager = require("./cssManager");
+const DomManager = require("./domManager");
 
 const eventBinders = new EventBinders();
 const harpSoundControl = new HarpSoundControl(Tone);
-const cssManager = new CssManager();
+const domManager = new DomManager();
 const eventHandlers = new EventHandlers(
   eventBinders,
   harpSoundControl,
-  cssManager
+  domManager
 );
