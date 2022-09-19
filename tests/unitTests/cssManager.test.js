@@ -136,7 +136,7 @@ describe("showStart", () => {
 
 describe("changeChordName", () => {
   const cssManager = new CssManager();
-  it("changes chord name", () => {
+  it("changes displayed chord name", () => {
     const whichChord = 0;
     const name = "D#";
     cssManager.setInitialClass();
