@@ -54,14 +54,12 @@
 }
 
 .rightspace {
-  display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-around;
 }
 
 .stringscontainer {
-  display: flex;
   flex: 20;
   flex-direction: row;
   justify-content: space-around;
@@ -83,7 +81,6 @@
 }
 
 .chordname {
-  display: flex;
   flex: 2;
   flex-direction: column;
   justify-content: space-around;
@@ -96,9 +93,12 @@
   display: none;
 }
 
+.flex {
+  display: flex;
+}
+
 .zero {
   background: var(--zerochordcolour);
-  display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-around;
@@ -106,7 +106,6 @@
 
 .one {
   background: var(--onechordcolour);
-  display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-around;
@@ -114,7 +113,6 @@
 
 .two {
   background: var(--twochordcolour);
-  display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-around;

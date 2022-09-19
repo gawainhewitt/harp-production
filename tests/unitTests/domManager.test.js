@@ -11,15 +11,14 @@ describe("setInitialClass", () => {
     const elementNames = [
       "startscreen",
       "topbox",
-      "zero",
-      "one",
-      "two",
       "bottombox",
       "optionstop",
       "optionsmiddle",
       "optionsbottom",
       "backbutton"
     ];
+
+    const chordNameDivs = ["zero", "one", "two"];
 
     const chordNames = ["chord0name", "chord1name", "chord2name"];
 
@@ -42,6 +41,11 @@ describe("setInitialClass", () => {
       expect(element.className).toEqual(name);
     }
 
+    for (const name of chordNameDivs) {
+      const element = document.querySelector(`#${name}`);
+      expect(element.className).toEqual(`${name} flex`);
+    }
+
     for (const name of chordNames) {
       const element = document.querySelector(`#${name}`);
       expect(element.className).toEqual("chordname");
@@ -49,7 +53,7 @@ describe("setInitialClass", () => {
 
     for (const name of stringContainers) {
       const element = document.querySelector(`#${name}`);
-      expect(element.className).toEqual("stringscontainer");
+      expect(element.className).toEqual("stringscontainer flex");
     }
 
     for (let chord = 0; chord < 3; chord++) {
@@ -61,7 +65,7 @@ describe("setInitialClass", () => {
 
     for (const name of rightspaces) {
       const element = document.querySelector(`#${name}`);
-      expect(element.className).toEqual("rightspace");
+      expect(element.className).toEqual("rightspace flex");
     }
 
     const optionscreen = document.querySelector("#optionscreen");
@@ -73,20 +77,21 @@ describe("switchChords", () => {
   const domManager = new DomManager();
   const chordBlockClasses = ["zero", "one", "two"];
   const button = 0;
+  domManager.setInitialClass();
 
   it("changes class to invisible when it is visible", () => {
     domManager.switchChords(button, false);
 
     expect(
       document.querySelector(`#${chordBlockClasses[button]}`).className
-    ).toEqual("invisible");
+    ).toEqual(`${chordBlockClasses[button]} invisible`);
   });
   it("changes class to visible when it is invisible", () => {
     domManager.switchChords(button, true);
 
     expect(
       document.querySelector(`#${chordBlockClasses[button]}`).className
-    ).toEqual(chordBlockClasses[button]);
+    ).toEqual(`${chordBlockClasses[button]} flex`);
   });
 });
 

@@ -46,16 +46,39 @@ class DomManager {
       element.className = "rightspace";
     }
     this.optionsInvisible();
+    this.stringElementVisibility = [
+      ["#zero", "#one", "#two"],
+      ["#stringscontainer0", "#stringscontainer1", "#stringscontainer2"],
+      ["#chordzerorightspace", "#chordonerightspace", "#chordtworightspace"]
+    ];
+    for (let i = 0; i < this.stringElementVisibility.length; i++) {
+      for (let j = 0; j < this.stringElementVisibility[i].length; j++) {
+        const element = document.querySelector(
+          this.stringElementVisibility[i][j]
+        );
+        element.classList.add("flex");
+      }
+    }
   }
 
   switchChords(chord, visible) {
-    const chordBlockClasses = ["zero", "one", "two"];
+    // const chordBlockClasses = ["zero", "one", "two"];
     if (!visible) {
-      document.querySelector(`#${chordBlockClasses[chord]}`).className =
-        "invisible";
+      for (let i = 0; i < this.stringElementVisibility.length; i++) {
+        const element = document.querySelector(
+          this.stringElementVisibility[i][chord]
+        );
+        element.classList.remove("flex");
+        element.classList.add("invisible");
+      }
     } else {
-      document.querySelector(`#${chordBlockClasses[chord]}`).className =
-        chordBlockClasses[chord];
+      for (let i = 0; i < this.stringElementVisibility.length; i++) {
+        const element = document.querySelector(
+          this.stringElementVisibility[i][chord]
+        );
+        element.classList.remove("invisible");
+        element.classList.add("flex");
+      }
     }
   }
 
