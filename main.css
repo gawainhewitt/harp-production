@@ -75,6 +75,7 @@
   font-size: 300%;
   text-align: center;
   color: var(--chordnamecolour);
+  white-space: nowrap;
 }
 
 .invisible {
