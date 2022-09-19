@@ -8,7 +8,17 @@ describe("setInitialClass", () => {
   it("initialises elements with correct class", () => {
     const cssManager = new CssManager();
 
-    const elementNames = ["startscreen", "topbox", "zero", "one", "two"];
+    const elementNames = [
+      "startscreen",
+      "topbox",
+      "zero",
+      "one",
+      "two",
+      "bottombox",
+      "optionstop",
+      "optionsmiddle",
+      "optionsbottom"
+    ];
 
     const chordNames = ["chord0name", "chord1name", "chord2name"];
 
@@ -52,9 +62,6 @@ describe("setInitialClass", () => {
       const element = document.querySelector(`#${name}`);
       expect(element.className).toEqual("rightspace");
     }
-
-    const bottombox = document.querySelector("#bottombox");
-    expect(bottombox.className).toEqual("bottombox");
 
     const optionscreen = document.querySelector("#optionscreen");
     expect(optionscreen.className).toEqual("invisible");

@@ -127,6 +127,31 @@ p {
   position: absolute;
 }
 
+.optionstop {
+  height: 10vh;
+  background: var(--backgroundcolour);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.optionsmiddle {
+  margin: 0 auto;
+  background: var(--backgroundcolour);
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 10;
+  position: absolute;
+}
+
+.optionsbottom {
+  height: 10vh;
+  background: var(--backgroundcolour);
+}
+
 .startscreen {
   margin: 0 auto;
   background: var(--backgroundcolour);
