@@ -24,6 +24,7 @@ class EventHandlers {
     this.eventBinders.bindChordButtons(this.switchChords);
     this.eventBinders.bindOptionsButton(this.enterOptionScreen);
     this.eventBinders.bindBackButton(this.leaveOptionScreen);
+    this.eventBinders.bindKeyDropDown(this.keyMenu);
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
@@ -115,6 +116,12 @@ class EventHandlers {
         }
       }
     }
+  };
+
+  keyMenu = (e) => {
+    // console.log(e);
+    console.log(e.srcElement.id);
+    console.log(e.srcElement.value);
   };
 
   handleTouchStart = (e) => {

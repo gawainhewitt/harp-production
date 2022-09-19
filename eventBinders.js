@@ -92,15 +92,13 @@ class EventBinders {
   }
 
   bindKeyDropDown(handler) {
-    this.zeroChordDropdown.addEventListener("change", () => {
-      handler(e, 0);
-    });
-    this.oneChordDropdown.addEventListener("change", () => {
-      handler(e, 1);
-    });
-    this.zeroChordDropdown.addEventListener("change", () => {
-      handler(e, 2);
-    });
+    this.zeroChordDropdown.addEventListener("change", handler);
+    // this.oneChordDropdown.addEventListener("change", () => {
+    //   handler(e, 1);
+    // });
+    // this.zeroChordDropdown.addEventListener("change", () => {
+    //   handler(e, 2);
+    // });
   }
 }
 

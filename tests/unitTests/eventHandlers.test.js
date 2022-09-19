@@ -287,6 +287,23 @@ describe("handleKeyDown and handleKeyUp", () => {
   });
 });
 
+describe("keyMenu", () => {
+  it("placeholder", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const domManager = new DomManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      domManager
+    );
+
+    eventHandlers.keyMenu();
+
+    expect(true).toEqual(true);
+  });
+});
+
 // it("plays a note when screen touched", () => {
 //   jest.mock("../../eventHandlers", () => {
 //     const originalModule = jest.requireActual("../../eventHandlers");
