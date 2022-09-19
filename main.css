@@ -136,15 +136,12 @@ p {
 }
 
 .optionsmiddle {
-  margin: 0 auto;
   background: var(--backgroundcolour);
   height: 80vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 10;
-  position: absolute;
 }
 
 .optionsbottom {
