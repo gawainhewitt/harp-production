@@ -23,6 +23,43 @@ class DomManager {
       "chordonerightspace",
       "chordtworightspace"
     ];
+    this.stringElementVisibility = [
+      ["#zero", "#one", "#two"],
+      ["#stringscontainer0", "#stringscontainer1", "#stringscontainer2"],
+      ["#chordzerorightspace", "#chordonerightspace", "#chordtworightspace"]
+    ];
+    const chordBackgroundColours = [
+      "chord0colour",
+      "chord1colour",
+      "chord2colour"
+    ];
+    const optionsChordBlocks = [
+      [
+        "optionstopchordname",
+        "optionstopchordkey",
+        "optionstopchordchordtype",
+        "optionstopchordstate"
+      ],
+      [
+        "optionsmiddlechordname",
+        "optionsmiddlechordkey",
+        "optionsmiddlechordchordtype",
+        "optionsmiddlechordstate"
+      ],
+      [
+        "optionsbottomchordname",
+        "optionsbottomchordkey",
+        "optionsbottomchordchordtype",
+        "optionsbottomchordstate"
+      ]
+    ];
+    for (let i = 0; i < optionsChordBlocks.length; i++) {
+      for (let j = 0; j < optionsChordBlocks[i].length; j++) {
+        const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
+        element.className = chordBackgroundColours[i];
+        element.classList.add("chordname");
+      }
+    }
     for (const name of elementNames) {
       const element = document.querySelector(`#${name}`);
       element.className = name;
@@ -31,9 +68,10 @@ class DomManager {
       const element = document.querySelector(`#${name}`);
       element.className = "chordname";
     }
-    for (const name of stringContainers) {
-      const element = document.querySelector(`#${name}`);
+    for (let i = 0; i < stringContainers.length; i++) {
+      const element = document.querySelector(`#${stringContainers[i]}`);
       element.className = "stringscontainer";
+      element.classList.add(chordBackgroundColours[i]);
     }
     for (let chord = 0; chord < 3; chord++) {
       for (let string = 0; string < 10; string++) {
@@ -41,16 +79,13 @@ class DomManager {
         element.className = "string";
       }
     }
-    for (const name of rightspaces) {
-      const element = document.querySelector(`#${name}`);
+    for (let i = 0; i < rightspaces.length; i++) {
+      const element = document.querySelector(`#${rightspaces[i]}`);
       element.className = "rightspace";
+      element.classList.add(chordBackgroundColours[i]);
     }
     this.optionsInvisible();
-    this.stringElementVisibility = [
-      ["#zero", "#one", "#two"],
-      ["#stringscontainer0", "#stringscontainer1", "#stringscontainer2"],
-      ["#chordzerorightspace", "#chordonerightspace", "#chordtworightspace"]
-    ];
+
     for (let i = 0; i < this.stringElementVisibility.length; i++) {
       for (let j = 0; j < this.stringElementVisibility[i].length; j++) {
         const element = document.querySelector(

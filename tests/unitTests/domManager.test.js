@@ -51,9 +51,11 @@ describe("setInitialClass", () => {
       expect(element.className).toEqual("chordname");
     }
 
-    for (const name of stringContainers) {
-      const element = document.querySelector(`#${name}`);
-      expect(element.className).toEqual("stringscontainer flex");
+    for (let i = 0; i < stringContainers.length; i++) {
+      const element = document.querySelector(`#${stringContainers[i]}`);
+      expect(element.className).toEqual(
+        `stringscontainer chord${i}colour flex`
+      );
     }
 
     for (let chord = 0; chord < 3; chord++) {
@@ -63,13 +65,49 @@ describe("setInitialClass", () => {
       }
     }
 
-    for (const name of rightspaces) {
-      const element = document.querySelector(`#${name}`);
-      expect(element.className).toEqual("rightspace flex");
+    for (let i = 0; i < rightspaces.length; i++) {
+      const element = document.querySelector(`#${rightspaces[i]}`);
+      expect(element.className).toEqual(`rightspace chord${i}colour flex`);
     }
 
     const optionscreen = document.querySelector("#optionscreen");
     expect(optionscreen.className).toEqual("invisible");
+
+    const chordBackgroundColours = [
+      "chord0colour",
+      "chord1colour",
+      "chord2colour"
+    ];
+    const optionsChordBlocks = [
+      [
+        "optionstopchordname",
+        "optionstopchordkey",
+        "optionstopchordchordtype",
+        "optionstopchordstate"
+      ],
+      [
+        "optionsmiddlechordname",
+        "optionsmiddlechordkey",
+        "optionsmiddlechordchordtype",
+        "optionsmiddlechordstate"
+      ],
+      [
+        "optionsbottomchordname",
+        "optionsbottomchordkey",
+        "optionsbottomchordchordtype",
+        "optionsbottomchordstate"
+      ]
+    ];
+    for (let i = 0; i < optionsChordBlocks.length; i++) {
+      for (let j = 0; j < optionsChordBlocks[i].length; j++) {
+        const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
+        element.className = chordBackgroundColours[i];
+        element.classList.add("chordname");
+        expect(element.className).toEqual(
+          `${chordBackgroundColours[i]} chordname`
+        );
+      }
+    }
   });
 });
 

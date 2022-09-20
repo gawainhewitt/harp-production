@@ -65,25 +65,19 @@
   justify-content: space-around;
 }
 
-#stringscontainer0,
-#chordzerorightspace {
+.chord0colour {
   background-color: var(--zerochordcolour);
 }
 
-#stringscontainer1,
-#chordonerightspace {
+.chord1colour {
   background-color: var(--onechordcolour);
 }
 
-#stringscontainer2,
-#chordtworightspace {
+.chord2colour {
   background-color: var(--twochordcolour);
 }
 
 .chordname {
-  flex: 2;
-  flex-direction: column;
-  justify-content: space-around;
   font-size: 300%;
   text-align: center;
   color: var(--chordnamecolour);
@@ -153,7 +147,7 @@ p {
   height: 80vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 25% 25% 25% 25%;
   justify-content: space-around;
 }
 
