@@ -101,10 +101,8 @@ describe("setInitialClass", () => {
     for (let i = 0; i < optionsChordBlocks.length; i++) {
       for (let j = 0; j < optionsChordBlocks[i].length; j++) {
         const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
-        element.className = chordBackgroundColours[i];
-        element.classList.add("chordname");
         expect(element.className).toEqual(
-          `${chordBackgroundColours[i]} chordname`
+          `${chordBackgroundColours[i]} chordname flexcolumn`
         );
       }
     }

@@ -58,6 +58,7 @@ class DomManager {
         const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
         element.className = chordBackgroundColours[i];
         element.classList.add("chordname");
+        element.classList.add("flexcolumn");
       }
     }
     for (const name of elementNames) {
