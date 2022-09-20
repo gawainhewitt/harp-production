@@ -158,7 +158,7 @@ p {
   height: 80vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 25% 20% 5% 20% 10% 20%;
   justify-content: space-around;
 }
 
