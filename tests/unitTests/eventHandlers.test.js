@@ -288,7 +288,7 @@ describe("handleKeyDown and handleKeyUp", () => {
 });
 
 describe("keyMenu", () => {
-  it("placeholder", () => {
+  it("changes key", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
     const domManager = new DomManager();
@@ -299,14 +299,53 @@ describe("keyMenu", () => {
     );
 
     const myMock = {
-      srcElement: { id: "goats", value: "much" }
+      srcElement: { id: "goatsbaa", value: "much" }
     };
 
     const mockDomManagerInstance = DomManager.mock.instances[0];
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
 
     eventHandlers.keyMenu(myMock);
 
-    expect(mockDomManagerInstance.changeChordName).toHaveBeenCalled();
+    expect(mockDomManagerInstance.changeChordName).toHaveBeenCalledWith(
+      myMock.srcElement.id[6],
+      myMock.srcElement.value
+    );
+    expect(mockHarpSoundControlInstance.chooseRoot).toHaveBeenCalledWith(
+      myMock.srcElement.id[6],
+      myMock.srcElement.value
+    );
+  });
+});
+
+describe("chordMenu", () => {
+  it("changes chord", () => {
+    const harpSoundControl = new HarpSoundControl();
+    const eventBinders = new EventBinders();
+    const domManager = new DomManager();
+    const eventHandlers = new EventHandlers(
+      eventBinders,
+      harpSoundControl,
+      domManager
+    );
+
+    const myMock = {
+      srcElement: { id: "goatsbaa", value: "much" }
+    };
+
+    const mockDomManagerInstance = DomManager.mock.instances[0];
+    const mockHarpSoundControlInstance = HarpSoundControl.mock.instances[0];
+
+    eventHandlers.chordMenu(myMock);
+
+    expect(mockDomManagerInstance.changeChordType).toHaveBeenCalledWith(
+      myMock.srcElement.id[6],
+      myMock.srcElement.value
+    );
+    expect(mockHarpSoundControlInstance.chooseChord).toHaveBeenCalledWith(
+      myMock.srcElement.id[6],
+      myMock.srcElement.value
+    );
   });
 });
 

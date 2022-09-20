@@ -25,6 +25,7 @@ class EventHandlers {
     this.eventBinders.bindOptionsButton(this.enterOptionScreen);
     this.eventBinders.bindBackButton(this.leaveOptionScreen);
     this.eventBinders.bindKeyDropDown(this.keyMenu);
+    this.eventBinders.bindChordDropDown(this.chordMenu);
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
@@ -119,11 +120,16 @@ class EventHandlers {
   };
 
   keyMenu = (e) => {
-    console.log(e);
-    console.log(e.srcElement.id[6]);
-    console.log(e.srcElement.value);
     this.domManager.changeChordName(e.srcElement.id[6], e.srcElement.value);
     this.harpSoundControl.chooseRoot(e.srcElement.id[6], e.srcElement.value);
+  };
+
+  chordMenu = (e) => {
+    // console.log(e);
+    // console.log(e.srcElement.id[6]);
+    // console.log(e.srcElement.value);
+    this.domManager.changeChordType(e.srcElement.id[6], e.srcElement.value);
+    this.harpSoundControl.chooseChord(e.srcElement.id[6], e.srcElement.value);
   };
 
   handleTouchStart = (e) => {

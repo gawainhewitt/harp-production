@@ -21,23 +21,41 @@ class HarpSoundControl {
       minor: [0, 3, 7, 12, 15, 19, 24, 27, 31, 36]
     };
 
-    this.chordType = "major";
+    this.chordType = ["major", "major", "major"];
+
+    this.noteOffset = [7, 5, 0];
   }
 
   chooseRoot(chordPosition, rootNote) {
-    this.chords[this.chordType];
+    this.chords[this.chordType[chordPosition]];
 
     // prettier-ignore
     const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-    let noteOffset;
 
     for (let whichNote = 0; whichNote < notes.length; whichNote++) {
-      if (notes[whichNote] === rootNote) noteOffset = whichNote;
+      if (notes[whichNote] === rootNote)
+        this.noteOffset[chordPosition] = whichNote;
     }
 
-    for (let note = 0; note < this.chords[this.chordType].length; note++) {
+    this.setChord(chordPosition);
+  }
+
+  chooseChord(chordPosition, chordType) {
+    this.chordType[chordPosition] = chordType;
+    this.setChord(chordPosition);
+  }
+
+  setChord(chordPosition) {
+    for (
+      let note = 0;
+      note < this.chords[this.chordType[chordPosition]].length;
+      note++
+    ) {
       this.chordArray[chordPosition][note] =
-        this.allTheNotes[this.chords[this.chordType][note] + noteOffset];
+        this.allTheNotes[
+          this.chords[this.chordType[chordPosition]][note] +
+            this.noteOffset[chordPosition]
+        ];
     }
   }
 

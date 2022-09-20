@@ -138,6 +138,10 @@ class DomManager {
   changeChordName(whichChord, name) {
     document.querySelector(`#chord${whichChord}name`).innerHTML = name;
   }
+
+  changeChordType(whichChord, name) {
+    document.querySelector(`#chord${whichChord}type`).innerHTML = name;
+  }
 }
 
 module.exports = DomManager;

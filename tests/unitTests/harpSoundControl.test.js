@@ -78,3 +78,16 @@ describe("chooseRoot", () => {
     expect(harpSoundControl.chordArray[middleChord]).toEqual(cChord);
   });
 });
+
+describe("chooseChord", () => {
+  const harpSoundControl = new HarpSoundControl(FakeTone);
+
+  it("sets type of chord", () => {
+    const bottomChord = 2;
+    const chordType = "minor";
+
+    harpSoundControl.chooseChord(bottomChord, chordType);
+
+    expect(harpSoundControl.chordType[bottomChord]).toEqual(chordType);
+  });
+});

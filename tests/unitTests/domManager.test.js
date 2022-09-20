@@ -188,3 +188,17 @@ describe("changeChordName", () => {
     );
   });
 });
+
+describe("changeChordType", () => {
+  const domManager = new DomManager();
+  it("changes displayed chord name", () => {
+    const whichChord = 0;
+    const name = "minor";
+    domManager.setInitialClass();
+    domManager.changeChordType(whichChord, name);
+
+    expect(document.querySelector(`#chord${whichChord}type`).innerHTML).toEqual(
+      name
+    );
+  });
+});
