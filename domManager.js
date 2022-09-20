@@ -53,14 +53,9 @@ class DomManager {
         "optionsbottomchordstate"
       ]
     ];
-    for (let i = 0; i < optionsChordBlocks.length; i++) {
-      for (let j = 0; j < optionsChordBlocks[i].length; j++) {
-        const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
-        element.className = chordBackgroundColours[i];
-        element.classList.add("chordname");
-        element.classList.add("flexcolumn");
-      }
-    }
+
+    const chordType = ["chord0type", "chord1type", "chord2type"];
+
     for (const name of elementNames) {
       const element = document.querySelector(`#${name}`);
       element.className = name;
@@ -94,6 +89,18 @@ class DomManager {
         );
         element.classList.add("flex");
       }
+    }
+    for (let i = 0; i < optionsChordBlocks.length; i++) {
+      for (let j = 0; j < optionsChordBlocks[i].length; j++) {
+        const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
+        element.className = chordBackgroundColours[i];
+        element.classList.add("chordname");
+        element.classList.add("flexcolumn");
+      }
+    }
+    for (const name of chordType) {
+      const element = document.querySelector(`#${name}`);
+      element.className = "chordtype";
     }
   }
 

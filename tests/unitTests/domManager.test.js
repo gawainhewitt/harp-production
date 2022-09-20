@@ -106,6 +106,12 @@ describe("setInitialClass", () => {
         );
       }
     }
+    const chordType = ["chord0type", "chord1type", "chord2type"];
+
+    for (const name of chordType) {
+      const element = document.querySelector(`#${name}`);
+      expect(element.className).toEqual("chordtype");
+    }
   });
 });
 
