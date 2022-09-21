@@ -135,7 +135,14 @@ class DomManager {
   }
 
   showStart() {
-    document.querySelector("#startbutton").innerHTML = "Start";
+    document.querySelector("#infotext").innerHTML = `
+    <h1>Lines</h1> <br>
+    <p>To play:  <br>
+    touch or click screen, <br>
+    or use QWERTY keys<br>
+    on a keyboard<br><br>
+    On Apple devices,<br>
+    turn off silent mode</p><br><br>`;
   }
 
   hideStart() {

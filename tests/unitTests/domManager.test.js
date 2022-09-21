@@ -166,7 +166,9 @@ describe("showStart", () => {
   it("sets load screen to start text", () => {
     domManager.setInitialClass();
     domManager.showStart();
-    expect(document.querySelector("#startbutton").innerHTML).toEqual("Start");
+    expect(document.querySelector("#infotext").innerHTML).toEqual(
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dolor justo, porta quis ullamcorper eget, rhoncus id magna. Etiam iaculis felis eu rutrum accumsan. Integer laoreet ipsum ac leo euismod vehicula. Curabitur vel convallis mi. Nam vestibulum volutpat dui, sed tincidunt dolor fringilla ut. Donec et rhoncus nisl, in aliquet est. Pellentesque mollis mi a nulla dictum, at rutrum lectus fringilla. Suspendisse non ipsum eget est bibendum pulvinar."
+    );
   });
 
   describe("hideStart", () => {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --env=jsdom",
-    "build": "rm -rf ./dist/ && mkdir ./dist && cp ./index.html ./dist/index.html && cp ./main.css ./dist/main.css && cp -avr ./sounds/ ./dist/ && esbuild index.js --bundle  --outfile=./dist/bundle.js"
+    "build": "rm -rf ./dist/ && mkdir ./dist && cp ./index.html ./dist/index.html && cp ./main.css ./dist/main.css && cp -avr ./sounds/ ./dist/ && cp -avr ./images/ ./dist/ && esbuild index.js --bundle  --outfile=./dist/bundle.js"
   },
   "repository": {
     "type": "git",
