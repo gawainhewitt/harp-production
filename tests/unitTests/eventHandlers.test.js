@@ -164,6 +164,23 @@ describe("start", () => {
   });
 });
 
+describe("aboutScreen", () => {
+  const harpSoundControl = new HarpSoundControl();
+  const eventBinders = new EventBinders();
+  const domManager = new DomManager();
+  const eventHandlers = new EventHandlers(
+    eventBinders,
+    harpSoundControl,
+    domManager
+  );
+
+  const mockdomManagerInstance = DomManager.mock.instances[0];
+
+  eventHandlers.aboutScreen();
+
+  expect(mockdomManagerInstance.showOptions).toHaveBeenCalled();
+});
+
 describe("stringIsPlucked", () => {
   test("calls playNote if type is mouse && mouseDown && in main screen", () => {
     const harpSoundControl = new HarpSoundControl();

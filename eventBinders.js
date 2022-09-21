@@ -11,6 +11,7 @@ class EventBinders {
     this.startscreen = document.querySelector("#startscreen");
     this.backbutton = document.querySelector("#backbutton");
     this.optionsButton = document.querySelector("#optionsbutton");
+    this.aboutButton = document.querySelector("#aboutbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
     this.twochordbutton = document.querySelector("#twochordbutton");
     this.zeroKeyDropdown = document.querySelector("#select0key");
@@ -94,6 +95,10 @@ class EventBinders {
 
   bindOptionsButton(handler) {
     this.optionsButton.addEventListener("click", handler);
+  }
+
+  bindAboutButton(handler) {
+    this.aboutButton.addEventListener("click", handler);
   }
 
   bindKeyDropDown(handler) {

@@ -144,6 +144,10 @@ class DomManager {
     turn off silent mode</p><br><br>`;
   }
 
+  showOptions() {
+    document.querySelector("#startscreen").className = "startscreen";
+  }
+
   hideStart() {
     document.querySelector("#startscreen").className = "invisible";
   }

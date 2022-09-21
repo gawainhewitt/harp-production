@@ -23,6 +23,7 @@ class EventHandlers {
     this.eventBinders.bindTouchCancel(this.handleCancel);
     this.eventBinders.bindChordButtons(this.switchChords);
     this.eventBinders.bindOptionsButton(this.enterOptionScreen);
+    this.eventBinders.bindAboutButton(this.aboutScreen);
     this.eventBinders.bindBackButton(this.leaveOptionScreen);
     this.eventBinders.bindKeyDropDown(this.keyMenu);
     this.eventBinders.bindChordDropDown(this.chordMenu);
@@ -54,6 +55,10 @@ class EventHandlers {
 
   leaveOptionScreen = () => {
     this.domManager.optionsInvisible();
+  };
+
+  aboutScreen = () => {
+    this.domManager.showOptions();
   };
 
   displayStartButton = () => {

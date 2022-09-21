@@ -239,6 +239,21 @@ describe("bindOptionsButton", () => {
   });
 });
 
+describe("bindAboutButton", () => {
+  test("call handler function", () => {
+    const eventBinders = new EventBinders();
+
+    let aboutbutton = document.querySelector("#aboutbutton");
+
+    const aboutMock = jest.fn();
+
+    eventBinders.bindAboutButton(aboutMock);
+    aboutbutton.click();
+
+    expect(aboutMock).toHaveBeenCalled();
+  });
+});
+
 // describe("bindKeyDropDown", () => {
 //   const eventBinders = new EventBinders();
 

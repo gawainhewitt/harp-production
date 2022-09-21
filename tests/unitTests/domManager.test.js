@@ -176,6 +176,17 @@ describe("showStart", () => {
     turn off silent mode</p><br><br>`);
   });
 
+  describe("showOptions", () => {
+    const domManager = new DomManager();
+    it("shows about screen", () => {
+      domManager.setInitialClass();
+      domManager.showOptions();
+      expect(document.querySelector("#startscreen").className).toEqual(
+        "startscreen"
+      );
+    });
+  });
+
   describe("hideStart", () => {
     const domManager = new DomManager();
     it("hides start screen", () => {
