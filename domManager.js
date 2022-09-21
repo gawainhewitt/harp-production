@@ -135,8 +135,7 @@ class DomManager {
   }
 
   showStart() {
-    document.querySelector("#infotext").innerHTML = `
-    <h1>Lines</h1> <br>
+    document.querySelector("#infotext").innerHTML = `<h1>Lines</h1> <br>
     <p>To play:  <br>
     touch or click screen, <br>
     or use QWERTY keys<br>
