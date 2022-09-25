@@ -2,6 +2,18 @@ const fs = require("fs");
 const html = fs.readFileSync("./index.html");
 document.documentElement.innerHTML = html;
 
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn()
+  }))
+});
+
 const EventBinders = require("../../eventBinders");
 
 describe("bindChordButtons", () => {
@@ -293,3 +305,20 @@ describe("bindResizeWindow", () => {
     expect(resizeMock).toHaveBeenCalled();
   });
 });
+
+// describe("bindDetectPortrait", () => {
+//   test("calls handler function", () => {
+//     const eventBinders = new EventBinders();
+
+//     const portraitMock = jest.fn();
+
+//     eventBinders.bindDetectPortrait(portraitMock);
+
+//     window.innerWidth = 20;
+//     window.innerHeight = 100;
+
+//     window.dispatchEvent(new Event("resize"));
+
+//     expect(portraitMock).toHaveBeenCalled();
+//   });
+// });

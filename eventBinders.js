@@ -20,6 +20,8 @@ class EventBinders {
     this.zeroChordDropdown = document.querySelector("#select0chordtype");
     this.oneChordDropdown = document.querySelector("#select1chordtype");
     this.twoChordDropdown = document.querySelector("#select2chordtype");
+
+    this.portrait = window.matchMedia("(orientation: portrait)");
   }
 
   bindChordButtons(handler) {
@@ -115,6 +117,11 @@ class EventBinders {
 
   bindResizeWindow(handler) {
     window.addEventListener("resize", handler);
+  }
+
+  bindDetectPortrait(handler) {
+    console.log("walkies soon");
+    this.portrait.addEventListener("change", handler);
   }
 }
 
