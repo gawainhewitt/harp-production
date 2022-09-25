@@ -97,7 +97,7 @@ h1 {
 }
 
 .chordname {
-  font-size: 300%;
+  font-size: 1em;
   text-align: center;
   color: var(--chordnamecolour);
 }
