@@ -240,7 +240,7 @@ describe("bindOptionsButton", () => {
 });
 
 describe("bindAboutButton", () => {
-  test("call handler function", () => {
+  test("calls handler function", () => {
     const eventBinders = new EventBinders();
 
     let aboutbutton = document.querySelector("#aboutbutton");
@@ -251,6 +251,20 @@ describe("bindAboutButton", () => {
     aboutbutton.click();
 
     expect(aboutMock).toHaveBeenCalled();
+  });
+});
+
+describe("bindResizeWindow", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
+    const resizeMock = jest.fn();
+
+    eventBinders.bindResizeWindow(resizeMock);
+
+    window.dispatchEvent(new Event("resize"));
+
+    expect(resizeMock).toHaveBeenCalled();
   });
 });
 

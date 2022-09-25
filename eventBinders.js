@@ -112,6 +112,11 @@ class EventBinders {
     this.oneChordDropdown.addEventListener("change", handler);
     this.twoChordDropdown.addEventListener("change", handler);
   }
+
+  bindResizeWindow(handler) {
+    console.log("are elephants goats");
+    window.addEventListener("resize", handler);
+  }
 }
 
 module.exports = EventBinders;
