@@ -27,6 +27,7 @@ class EventHandlers {
     this.eventBinders.bindBackButton(this.leaveOptionScreen);
     this.eventBinders.bindKeyDropDown(this.keyMenu);
     this.eventBinders.bindChordDropDown(this.chordMenu);
+    this.eventBinders.bindResizeWindow(this.domManager.setViewHeight);
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
