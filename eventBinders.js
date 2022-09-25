@@ -114,7 +114,6 @@ class EventBinders {
   }
 
   bindResizeWindow(handler) {
-    console.log("are elephants goats");
     window.addEventListener("resize", handler);
   }
 }
