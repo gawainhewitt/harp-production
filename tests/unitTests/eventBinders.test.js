@@ -254,6 +254,32 @@ describe("bindAboutButton", () => {
   });
 });
 
+describe("bindKeyDropDown", () => {
+  const eventBinders = new EventBinders();
+
+  let dropDown = document.querySelector("#select0key");
+
+  const keyMock = jest.fn();
+
+  eventBinders.bindKeyDropDown(keyMock);
+  dropDown.dispatchEvent(new Event("change"));
+
+  expect(keyMock).toHaveBeenCalled();
+});
+
+describe("bindChordDropDown", () => {
+  const eventBinders = new EventBinders();
+
+  let dropDown = document.querySelector("#select0chordtype");
+
+  const chordMock = jest.fn();
+
+  eventBinders.bindChordDropDown(chordMock);
+  dropDown.dispatchEvent(new Event("change"));
+
+  expect(chordMock).toHaveBeenCalled();
+});
+
 describe("bindResizeWindow", () => {
   test("calls handler function", () => {
     const eventBinders = new EventBinders();
@@ -267,18 +293,3 @@ describe("bindResizeWindow", () => {
     expect(resizeMock).toHaveBeenCalled();
   });
 });
-
-// describe("bindKeyDropDown", () => {
-//   const eventBinders = new EventBinders();
-
-//   let dropDown = document.querySelector("#select0key");
-
-//   const keyMock = jest.fn();
-
-//   eventBinders.bindKeyDropDown(keyMock);
-//   // dropDown.selectedIndex = 2;
-
-//   expect(keyMock).toHaveBeenCalled();
-// });
-
-// don't think I can test as can't simulate selecting the item in menu
