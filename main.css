@@ -152,7 +152,7 @@ p {
   font-size: 2em;
 }
 
-#optionscreen {
+.optionscreen {
   margin: 0 auto;
   background: var(--backgroundcolour);
   height: 100vh;
@@ -165,7 +165,7 @@ p {
   position: absolute;
 }
 
-#optionstop {
+.optionstop {
   height: 10vh;
   height: calc(var(--vh, 1vh) * 10);
   background: var(--backgroundcolour);
@@ -174,7 +174,7 @@ p {
   justify-content: space-around;
 }
 
-#optionsmiddle {
+.optionsmiddle {
   background: var(--backgroundcolour);
   height: 80vh;
   height: calc(var(--vh, 1vh) * 80);
@@ -184,7 +184,7 @@ p {
   justify-content: space-around;
 }
 
-#optionsbottom {
+.optionsbottom {
   height: 10vh;
   height: calc(var(--vh, 1vh) * 10);
   background: var(--backgroundcolour);
