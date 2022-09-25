@@ -115,6 +115,21 @@ describe("setInitialClass", () => {
   });
 });
 
+describe("setViewHeight", () => {
+  const domManager = new DomManager();
+  it("sets viewheight to viewport", () => {
+    let vh = window.innerHeight * 0.01;
+
+    domManager.setViewHeight();
+
+    let cssVariableValue = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--vh");
+
+    expect(cssVariableValue).toEqual(`${vh}px`);
+  });
+});
+
 describe("switchChords", () => {
   const domManager = new DomManager();
   const chordBlockClasses = ["zero", "one", "two"];
