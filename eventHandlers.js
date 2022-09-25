@@ -31,6 +31,7 @@ class EventHandlers {
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
     this.domManager.setInitialClass();
+    this.domManager.setViewHeight();
 
     this.initialiseChordButtons();
   }
