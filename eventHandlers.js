@@ -27,13 +27,13 @@ class EventHandlers {
     this.eventBinders.bindBackButton(this.leaveOptionScreen);
     this.eventBinders.bindKeyDropDown(this.keyMenu);
     this.eventBinders.bindChordDropDown(this.chordMenu);
-    this.eventBinders.bindResizeWindow(this.domManager.setViewHeight);
-    this.eventBinders.bindDetectPortrait(this.domManager.setViewHeight);
+    this.eventBinders.bindResizeWindow(this.setViewHeight);
+    this.eventBinders.bindDetectPortrait(this.setViewHeight);
 
     this.harpSoundControl.setUpSampler(this.displayStartButton);
 
     this.domManager.setInitialClass();
-    this.domManager.setViewHeight();
+    this.setViewHeight();
 
     this.initialiseChordButtons();
   }
@@ -138,6 +138,11 @@ class EventHandlers {
     // console.log(e.srcElement.value);
     this.domManager.changeChordType(e.srcElement.id[6], e.srcElement.value);
     this.harpSoundControl.chooseChord(e.srcElement.id[6], e.srcElement.value);
+  };
+
+  setViewHeight = () => {
+    console.log("set view height");
+    this.domManager.setViewHeight();
   };
 
   handleTouchStart = (e) => {
