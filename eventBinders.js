@@ -120,7 +120,6 @@ class EventBinders {
   }
 
   bindDetectPortrait(handler) {
-    console.log("walkies soon");
     this.portrait.addEventListener("change", handler);
   }
 }
