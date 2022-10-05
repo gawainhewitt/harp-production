@@ -12,6 +12,7 @@ class EventHandlers {
     this.keyIsDown = {};
 
     this.eventBinders.bindMouseEnter(this.stringIsPlucked);
+    this.eventBinders.bindStringClick(this.stringIsPlucked);
     this.eventBinders.bindSelectStart(this.disableSelect);
     this.eventBinders.bindMouseDown(this.registerMouseDown);
     this.eventBinders.bindMouseUp(this.registerMouseUp);
