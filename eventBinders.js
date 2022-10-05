@@ -71,6 +71,16 @@ class EventBinders {
     });
   }
 
+  bindStringClick(handler) {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 10; j++) {
+        this.stringsArray[i][j].addEventListener("click", () => {
+          handler("mouse", { chord: i, string: j });
+        });
+      }
+    }
+  }
+
   bindTouchStart(handler) {
     this.chordContainer.addEventListener("touchstart", handler);
   }

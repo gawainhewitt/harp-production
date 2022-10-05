@@ -80,13 +80,7 @@ describe("bindMouseEnter", () => {
 
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 10; j++) {
-        stringsArray[i][j].dispatchEvent(
-          new MouseEvent("mouseenter", {
-            view: window,
-            bubbles: true,
-            cancelable: true
-          })
-        );
+        stringsArray[i][j].dispatchEvent(new MouseEvent("mouseenter"));
         expect(mouseEnterMock).toHaveBeenCalledWith("mouse", {
           chord: i,
           string: j
@@ -132,6 +126,33 @@ describe("bindMouseUp", () => {
     document.dispatchEvent(new MouseEvent("mouseup"));
 
     expect(mouseupMock).toHaveBeenCalled();
+  });
+});
+
+describe("bindStringClick", () => {
+  test("calls handler function", () => {
+    const eventBinders = new EventBinders();
+
+    let stringsArray = [];
+    for (let i = 0; i < 3; i++) {
+      stringsArray[i] = [];
+      for (let j = 0; j < 10; j++) {
+        stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);
+      }
+    }
+
+    const mouseClickMock = jest.fn();
+    eventBinders.bindStringClick(mouseClickMock);
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 10; j++) {
+        stringsArray[i][j].dispatchEvent(new MouseEvent("click"));
+        expect(mouseClickMock).toHaveBeenCalledWith("mouse", {
+          chord: i,
+          string: j
+        });
+      }
+    }
   });
 });
 
