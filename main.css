@@ -238,9 +238,9 @@ p {
 /* button styling */
 
 .button-style {
-  width: 150px;
-  height: 76px;
-  line-height: 78px;
+  width: 120px;
+  height: 56px;
+  line-height: 58px;
   font-size: 20px;
   font-family: "Bebas Neue", sans-serif;
   background: linear-gradient(45deg, transparent 5%, var(--buttoncolour) 5%);
