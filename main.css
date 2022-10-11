@@ -147,6 +147,12 @@ h1 {
   width: 2vw;
 }
 
+@media (max-width: 800px) {
+  .string {
+    width: 4vw;
+  }
+}
+
 p {
   text-align: center;
   font-size: 2em;
@@ -261,6 +267,8 @@ p {
     height: 86px;
     line-height: 88px;
   }
+  .chordname {
+    font-size: 3em;
 }
 
 /* toggle styling */
