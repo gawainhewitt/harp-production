@@ -20,18 +20,19 @@ describe("bindChordButtons", () => {
   test("chord buttons call handler function", () => {
     const eventBinders = new EventBinders();
 
+    let zerochordbutton = document.querySelector("#zerochordbutton");
     let onechordbutton = document.querySelector("#onechordbutton");
-    let twochordbutton = document.querySelector("#twochordbutton");
     const chordMock = jest.fn();
 
     eventBinders.bindChordButtons(chordMock);
+
+    zerochordbutton.click();
+
+    expect(chordMock).toHaveBeenCalledWith(0, zerochordbutton);
+
     onechordbutton.click();
 
     expect(chordMock).toHaveBeenCalledWith(1, onechordbutton);
-
-    twochordbutton.click();
-
-    expect(chordMock).toHaveBeenCalledWith(2, twochordbutton);
   });
 });
 

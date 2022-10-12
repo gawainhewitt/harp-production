@@ -40,11 +40,11 @@ class EventHandlers {
   }
 
   initialiseChordButtons() {
+    let zerochordbutton = document.querySelector("#zerochordbutton");
     let onechordbutton = document.querySelector("#onechordbutton");
-    let twochordbutton = document.querySelector("#twochordbutton");
 
+    zerochordbutton.click();
     onechordbutton.click();
-    twochordbutton.click();
   }
 
   switchChords = (button, element) => {

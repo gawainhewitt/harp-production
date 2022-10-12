@@ -12,8 +12,8 @@ class EventBinders {
     this.backbutton = document.querySelector("#backbutton");
     this.optionsButton = document.querySelector("#optionsbutton");
     this.aboutButton = document.querySelector("#aboutbutton");
+    this.zerochordbutton = document.querySelector("#zerochordbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
-    this.twochordbutton = document.querySelector("#twochordbutton");
     this.zeroKeyDropdown = document.querySelector("#select0key");
     this.oneKeyDropdown = document.querySelector("#select1key");
     this.twoKeyDropdown = document.querySelector("#select2key");
@@ -25,11 +25,11 @@ class EventBinders {
   }
 
   bindChordButtons(handler) {
+    this.zerochordbutton.addEventListener("click", () => {
+      handler(0, this.zerochordbutton);
+    });
     this.onechordbutton.addEventListener("click", () => {
       handler(1, this.onechordbutton);
-    });
-    this.twochordbutton.addEventListener("click", () => {
-      handler(2, this.twochordbutton);
     });
   }
 
