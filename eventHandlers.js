@@ -10,6 +10,7 @@ class EventHandlers {
     this.buttonCount = 0;
     this.mouseDown = false;
     this.keyIsDown = {};
+    this.chordState = [false, false, true];
 
     this.eventBinders.bindMouseEnter(this.stringIsPlucked);
     this.eventBinders.bindStringClick(this.stringIsPlucked);
@@ -49,8 +50,11 @@ class EventHandlers {
 
   switchChords = (button, element) => {
     const state = element.checked;
+    console.log(button);
     console.log(state);
     this.domManager.switchChords(button, state);
+    this.chordState[button] = state;
+    console.log(this.chordState);
   };
 
   enterOptionScreen = () => {
@@ -121,7 +125,7 @@ class EventHandlers {
                     ['KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash']];
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 10; j++) {
-        if (key === chords[i][j]) {
+        if (key === chords[i][j] && this.chordState[i]) {
           this.stringIsPlucked("key", { chord: i, string: j });
         }
       }

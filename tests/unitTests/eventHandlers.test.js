@@ -254,7 +254,7 @@ describe("disableSelect", () => {
 });
 
 describe("handleKeyDown and handleKeyUp", () => {
-  it("plays a note when a key is presses", () => {
+  it("plays a note when a key is pressed", () => {
     const harpSoundControl = new HarpSoundControl();
     const eventBinders = new EventBinders();
     const domManager = new DomManager();
@@ -269,6 +269,8 @@ describe("handleKeyDown and handleKeyUp", () => {
     };
 
     const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
+
+    eventHandlers.chordState[1] = true;
 
     eventHandlers.handleKeyDown(myMock);
 
@@ -289,6 +291,8 @@ describe("handleKeyDown and handleKeyUp", () => {
     };
 
     const spy = jest.spyOn(eventHandlers, "stringIsPlucked");
+
+    eventHandlers.chordState[1] = true;
 
     eventHandlers.handleKeyDown(myMock);
     eventHandlers.handleKeyDown(myMock);
