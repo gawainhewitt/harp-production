@@ -146,8 +146,8 @@ describe("bindStringClick", () => {
 
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 10; j++) {
-        stringsArray[i][j].dispatchEvent(new MouseEvent("click"));
-        expect(mouseClickMock).toHaveBeenCalledWith("mouse", {
+        stringsArray[i][j].dispatchEvent(new MouseEvent("mousedown"));
+        expect(mouseClickMock).toHaveBeenCalledWith("mouseClick", {
           chord: i,
           string: j
         });
