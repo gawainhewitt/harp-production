@@ -80,7 +80,7 @@ class DomManager {
       element.className = "rightspace";
       element.classList.add(chordBackgroundColours[i]);
     }
-    this.optionsInvisible();
+    // this.optionsInvisible();
 
     for (let i = 0; i < this.stringElementVisibility.length; i++) {
       for (let j = 0; j < this.stringElementVisibility[i].length; j++) {
@@ -155,6 +155,7 @@ class DomManager {
 
   hideStart() {
     document.querySelector("#startscreen").className = "invisible";
+    this.optionsInvisible();
   }
 
   changeChordName(whichChord, name) {
